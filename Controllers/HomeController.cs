@@ -5,8 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BookStore.Models;
-
-using BookStore.Models;
 using BookStore.Services;
 
 namespace BookStore.Controllers
