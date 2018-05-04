@@ -45,6 +45,20 @@ namespace BookStore
                 db.AddRange(initialAuthors);
                 db.SaveChanges();
             }
+
+            
+                var initialBooks = new List<Book>()
+                {
+                    new Book {Name = "The Lord of The Rings", Author = "J.R.R. Tolkien", AuthorID = 1,  Category = "Fantasy", YearPublished = "1939", Price = 19.99},
+                    new Book {Name = "Art of War", Author = "Sun Tzu", AuthorID = 5,  Category = "Philosophy", YearPublished = "Chinese times", Price = 9.99},
+                };
+
+                db.AddRange(initialBooks);
+                db.SaveChanges();
+
+            
+  
+            
         }
     }
 }

@@ -1,0 +1,15 @@
+@model List<BookStore.Models.ViewModels.BookListViewModel>
+
+<div>
+    @foreach(var album in @Model)
+    {
+        <div>
+            <p>@album.Name</p>
+            <p>@album.Author</p>
+            <p>@album.Category</p>
+            <p>@album.YearPublished</p>
+            <p>@album.Price</p>
+        </div>
+    }
+
+</div>

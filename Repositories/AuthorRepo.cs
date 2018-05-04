@@ -14,7 +14,7 @@ namespace BookStore.Repositories
         {
             _db = new DataContext();
         }
-
+        
         public List<AuthorListViewModel> GetAllAuthors()
         {
            var authors = (from a in _db.Authors
