@@ -45,7 +45,6 @@ namespace BookStore
                 db.AddRange(initialAuthors);
                 db.SaveChanges();
             }
-
             
                 var initialBooks = new List<Book>()
                 {
@@ -54,11 +53,7 @@ namespace BookStore
                 };
 
                 db.AddRange(initialBooks);
-                db.SaveChanges();
-
-            
-  
-            
+                db.SaveChanges();            
         }
     }
 }

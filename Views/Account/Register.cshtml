@@ -1,0 +1,25 @@
+@model BookStore.Models.ViewModels.RegisterViewModel
+
+<h1>Register</h1>
+<form asp-action="Register" asp-controller="Account" class="form-horizontal">
+    
+    <div clas="form-group">
+        <input type="email" asp-for="Email" class="form-control" placeholder="Enter Email Address"/>
+    </div>
+
+    <div clas="form-group">
+        <input type="text" asp-for="FirstName" class="form-control" placeholder="Enter First Name"/>
+    </div>
+
+    <div clas="form-group">
+        <input type="text" asp-for="LastName" class="form-control" placeholder="Enter Last Name"/>
+    </div>
+
+    <div clas="form-group">
+        <input type="password" asp-for="Password" class="form-control" placeholder="Enter Password"/>
+    </div>
+
+    <div clas="form-group">
+        <button type="submit" class="btn btn-default">Register</button> 
+    </div>
+</form>

@@ -1,0 +1,22 @@
+@model BookStore.Models.ViewModels.LoginViewModel
+
+<h1>Login</h1>
+<form asp-action="Login" asp-controller="Account" class="form-horizontal">
+    <div class="form-group">
+        <input type="email" asp-for="Email" class="form-control" placeholder="Email">
+    </div>
+
+    <div class="form-group">
+        <input type="password" asp-for="Password" class="form-control" placeholder="Password">
+    </div>
+    
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" asp-for="RememberMe" /> RememberMe
+        </label>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" class="btn btn-default" value="login"/>
+    </div>
+</form>
