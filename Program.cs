@@ -50,13 +50,17 @@ namespace BookStore
             {            
                 var initialBooks = new List<Book>()
                 {
-                    new Book {Name = "The Lord of The Rings", Author = "J.R.R. Tolkien", AuthorID = 1,  Category = "Fantasy", YearPublished = "1939", Price = 19.99},
-                    new Book {Name = "Art of War", Author = "Sun Tzu", AuthorID = 5,  Category = "Philosophy", YearPublished = "Chinese times", Price = 9.99},
+                    new Book {Name = "The Hobbit", Author = "J.R.R. Tolkien", AuthorID = 1,  Category = "Fantasy", YearPublished = "1937", Price = 19.99, Rating = 4.7, CopiesAvailable = 107, CopiesSold = 320},
+                    new Book {Name = "Art of War", Author = "Sun Tzu", AuthorID = 5,  Category = "Philosophy", YearPublished = "500 BC", Price = 9.99, Rating = 4.7, CopiesAvailable = 107, CopiesSold = 320},
                 };
 
                 db.AddRange(initialBooks);
                 db.SaveChanges();   
-            }         
+            }
+
+            var book = new Book {Name = "The Colour of Magic", Author = "Terry Pratchet", AuthorID = 6,  Category = "Fantasy", YearPublished = "1984", Price = 19.99, Rating = 4.6, CopiesAvailable = 200, CopiesSold = 150};
+            db.AddRange(book);
+            db.SaveChanges();
         }
     }
 }

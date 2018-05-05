@@ -11,8 +11,8 @@ using System;
 namespace BookStore.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20180503234742_BookTable_added")]
-    partial class BookTable_added
+    [Migration("20180505162957_DatabaseFix")]
+    partial class DatabaseFix
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,9 +44,15 @@ namespace BookStore.Migrations
 
                     b.Property<string>("Category");
 
+                    b.Property<int>("CopiesAvailable");
+
+                    b.Property<int>("CopiesSold");
+
                     b.Property<string>("Name");
 
                     b.Property<double>("Price");
+
+                    b.Property<double>("Rating");
 
                     b.Property<string>("YearPublished");
 

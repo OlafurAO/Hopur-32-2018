@@ -11,6 +11,7 @@
 *@
 
 <div>
+    <h2>Check out our bestsellers!</h2>
     <table style="width:100%">
         <tr>
             <th>Name</th>
@@ -25,6 +26,29 @@
                 <td><a>@book.Name</a></td> <td><a>@book.Author</a></td> <td>@book.Category</td> <td>@book.YearPublished</td> <td>@book.Price</td>
             </tr>
             
+        }
+    </table>
+</div>
+
+
+<div>
+    <h2>Fantasy Classics</h2>
+    <table style="width:100%">
+        <tr>
+            <th>Name</th>
+            <th>Author</th> 
+            <th>Category</th>
+            <th>Year</th>
+            <th>Price</th>
+        </tr>
+        @foreach(var book in @Model)
+        {
+            @if(book.Category == "Fantasy")
+            {
+                <tr>
+                    <td><a>@book.Name</a></td> <td><a>@book.Author</a></td> <td>@book.Category</td> <td>@book.YearPublished</td> <td>@book.Price</td>
+                </tr>
+            }            
         }
     </table>
 </div>

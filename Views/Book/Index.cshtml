@@ -1,6 +1,7 @@
 @model List<BookStore.Models.ViewModels.BookListViewModel>
 
 <div>
+    <h1>Check out our bestsellers!</h1>
     @foreach(var album in @Model)
     {
         <div>
@@ -11,5 +12,4 @@
             <p>@album.Price</p>
         </div>
     }
-
 </div>

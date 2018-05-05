@@ -26,7 +26,10 @@ namespace BookStore.Repositories
                              AuthorID = a.AuthorID,
                              Category = a.Category,
                              YearPublished = a.YearPublished,
-                             Price = a.Price
+                             Price = a.Price,
+                             Rating = a.Rating,
+                             CopiesAvailable = a.CopiesAvailable,
+                             CopiesSold = a.CopiesSold
                          }).ToList();
 
             return books;

@@ -15,5 +15,11 @@ namespace BookStore.Data.EntityModels
         public string YearPublished { get; set;}
 
         public double Price { get; set;}
+
+        public double Rating { get; set; }
+
+        public int CopiesAvailable { get; set; }
+
+        public int CopiesSold { get; set; }
     }
 }

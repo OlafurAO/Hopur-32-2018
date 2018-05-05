@@ -43,9 +43,15 @@ namespace BookStore.Migrations
 
                     b.Property<string>("Category");
 
+                    b.Property<int>("CopiesAvailable");
+
+                    b.Property<int>("CopiesSold");
+
                     b.Property<string>("Name");
 
                     b.Property<double>("Price");
+
+                    b.Property<double>("Rating");
 
                     b.Property<string>("YearPublished");
 
