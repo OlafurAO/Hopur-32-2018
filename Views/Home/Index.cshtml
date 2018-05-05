@@ -1,8 +1,30 @@
-﻿@model List<BookStore.Models.ViewModels.AuthorListViewModel>
+﻿@*@model List<BookStore.Models.ViewModels.AuthorListViewModel> *@
+@model List<BookStore.Models.ViewModels.BookListViewModel>
 
+@*
 <div>
     @foreach(var author in @Model)
     {
         <p>@author.Name</p>
     }
+</div>
+*@
+
+<div>
+    <table style="width:100%">
+        <tr>
+            <th>Name</th>
+            <th>Author</th> 
+            <th>Category</th>
+            <th>Year</th>
+            <th>Price</th>
+        </tr>
+        @foreach(var book in @Model)
+        {
+            <tr>
+                <td><a>@book.Name</a></td> <td><a>@book.Author</a></td> <td>@book.Category</td> <td>@book.YearPublished</td> <td>@book.Price</td>
+            </tr>
+            
+        }
+    </table>
 </div>

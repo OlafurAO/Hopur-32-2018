@@ -27,8 +27,7 @@ namespace BookStore
         {
             services.AddDbContext<AuthenticationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AuthenticationConnection")));
             services.AddIdentity<ApplicationUser, IdentityRole>()
-                .AddEntityFrameworkStores<AuthenticationDbContext>()
-                .AddDefaultTokenProviders();
+                .AddEntityFrameworkStores<AuthenticationDbContext>().AddDefaultTokenProviders();
 
             services.Configure<IdentityOptions>(config => {
                 config.User.RequireUniqueEmail = true;
@@ -43,8 +42,6 @@ namespace BookStore
                 options.SlidingExpiration = true;
             });
             
-
-
             services.AddMvc();
         }
 
@@ -55,6 +52,7 @@ namespace BookStore
             {
                 app.UseDeveloperExceptionPage();
             }
+            
             else
             {
                 app.UseExceptionHandler("/Home/Error");

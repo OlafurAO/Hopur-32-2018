@@ -88,7 +88,5 @@ namespace BookStore.Controllers
         {
             return View();
         }
-
-
     }
 }

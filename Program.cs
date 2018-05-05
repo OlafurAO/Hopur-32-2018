@@ -45,7 +45,9 @@ namespace BookStore
                 db.AddRange(initialAuthors);
                 db.SaveChanges();
             }
-            
+
+            if(!db.Books.Any())
+            {            
                 var initialBooks = new List<Book>()
                 {
                     new Book {Name = "The Lord of The Rings", Author = "J.R.R. Tolkien", AuthorID = 1,  Category = "Fantasy", YearPublished = "1939", Price = 19.99},
@@ -53,7 +55,8 @@ namespace BookStore
                 };
 
                 db.AddRange(initialBooks);
-                db.SaveChanges();            
+                db.SaveChanges();   
+            }         
         }
     }
 }
