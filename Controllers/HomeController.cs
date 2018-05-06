@@ -28,8 +28,6 @@ namespace BookStore.Controllers
             var books = _bookService.GetAllBooks();
 
             return View(books);
-        }
-
-        
+        }        
     }
 }

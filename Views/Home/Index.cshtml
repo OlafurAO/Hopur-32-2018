@@ -1,14 +1,4 @@
-﻿@*@model List<BookStore.Models.ViewModels.AuthorListViewModel> *@
-@model List<BookStore.Models.ViewModels.BookListViewModel>
-
-@*
-<div>
-    @foreach(var author in @Model)
-    {
-        <p>@author.Name</p>
-    }
-</div>
-*@
+﻿@model List<BookStore.Models.ViewModels.BookListViewModel>
 
 <div>
     <h2>Check out our bestsellers!</h2>
@@ -17,19 +7,17 @@
             <th>Name</th>
             <th>Author</th> 
             <th>Category</th>
-            <th>Year</th>
+            <th>Rating</th>
             <th>Price</th>
         </tr>
         @foreach(var book in @Model)
         {
             <tr>
-                <td><a>@book.Name</a></td> <td><a>@book.Author</a></td> <td>@book.Category</td> <td>@book.YearPublished</td> <td>@book.Price</td>
-            </tr>
-            
+                <td>@Html.ActionLink(book.Name, "Details", "Book", new { id = book.ID })</td> <td><a>@book.Author</a></td> <td>@book.Category</td> <td>@book.Rating</td> <td>@book.Price</td>
+            </tr>           
         }
     </table>
 </div>
-
 
 <div>
     <h2>Fantasy Classics</h2>
@@ -38,7 +26,7 @@
             <th>Name</th>
             <th>Author</th> 
             <th>Category</th>
-            <th>Year</th>
+            <th>Rating</th>
             <th>Price</th>
         </tr>
         @foreach(var book in @Model)
@@ -46,7 +34,7 @@
             @if(book.Category == "Fantasy")
             {
                 <tr>
-                    <td><a>@book.Name</a></td> <td><a>@book.Author</a></td> <td>@book.Category</td> <td>@book.YearPublished</td> <td>@book.Price</td>
+                    <td><a>@book.Name</a></td> <td><a>@book.Author</a></td> <td>@book.Category</td> <td>@book.Rating</td> <td>@book.Price</td>
                 </tr>
             }            
         }

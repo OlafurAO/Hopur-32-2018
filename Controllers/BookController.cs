@@ -27,6 +27,14 @@ namespace BookStore.Controllers
             return View(books);
         }
 
-        
+        [HttpGet("/Book/Details")]
+        public IActionResult Details(int? ID)
+        {
+            var book = _bookService.GetAllBooks().Find(x => x.ID == ID);
+
+            var books = _bookService.GetAllBooks();
+
+            return View(book);
+        }        
     }
 }
