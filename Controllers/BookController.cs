@@ -32,7 +32,7 @@ namespace BookStore.Controllers
         {
             var book = _bookService.GetAllBooks().Find(x => x.ID == ID);
 
-            var books = _bookService.GetAllBooks();
+            Console.WriteLine("book controller working");
 
             return View(book);
         } 
