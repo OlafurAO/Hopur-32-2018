@@ -3,4 +3,8 @@
 @{
     var book = @Model;
 }
-<h1>added @book.Name</h1>
+<h1>@book.Name added to cart!</h1>
+<p>
+    @Html.ActionLink("Continue Shopping", "Index", "Home", null, new { @class = "btn btn-info" }) 
+    @Html.ActionLink("Go to Cart", "CartView", "Cart", null , new { @class = "btn btn-info" }) 
+</p>

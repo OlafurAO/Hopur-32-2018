@@ -59,6 +59,27 @@ namespace BookStore.Migrations
 
                     b.ToTable("Books");
                 });
+
+            modelBuilder.Entity("BookStore.Data.EntityModels.Cart+CartContents", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int?>("BookID");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("BookID");
+
+                    b.ToTable("Cart");
+                });
+
+            modelBuilder.Entity("BookStore.Data.EntityModels.Cart+CartContents", b =>
+                {
+                    b.HasOne("BookStore.Data.EntityModels.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookID");
+                });
 #pragma warning restore 612, 618
         }
     }

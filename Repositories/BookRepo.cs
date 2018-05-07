@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BookStore.Models.ViewModels;
 using BookStore.Data;
+using BookStore.Data.EntityModels;
 
 namespace BookStore.Repositories
 {
@@ -34,6 +35,16 @@ namespace BookStore.Repositories
 
             return books;
         }
+
+/*        public Book FindBook(int ID)
+        {
+            var book = (from a in _db.Books
+                        where a.ID == ID
+                        select new Book());
+
+            return book;
+        }
+*/
 
 
     }

@@ -12,28 +12,40 @@ namespace BookStore.Controllers
 {
     public class CartController : Controller
     {
-        private int _cartQuantity;
         private BookService _bookService;
+
+        private Cart _cart;
 
         private DataContext _db;
 
         public CartController()
         {
             _bookService = new BookService();
-            _cartQuantity = 0;
+            _cart = new Cart();
             _db = new DataContext();
         }
 
         [HttpGet("/Cart/AddToCart")]
-         public IActionResult AddToCart(int? ID)       
+        public IActionResult AddToCart(int ID)       
         {
-            var book = _bookService.GetAllBooks().Find(x => x.ID == ID);
+           var book = _bookService.GetAllBooks().Find(x => x.ID == ID);
+           //var book = _bookService.FindBook(ID);
 
-            book.CopiesAvailable -= 1;
-            _cartQuantity += 1;
+            _cart._quantity += 1;
+
+
+
+            //_db.Add(new Cart.CartContents{Book = book});
             _db.SaveChanges();
 
             return View(book);
+        }
+
+        [HttpGet("/Cart/CartView")]
+        public IActionResult CartView()
+        {
+            
+            return View();
         }
     }
 }
