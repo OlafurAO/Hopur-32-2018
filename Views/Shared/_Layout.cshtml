@@ -42,7 +42,16 @@
                 @using(Html.BeginForm("Search", "Book", FormMethod.Get))
                 {
                     <div style="position:absolute;top:25%;right:35%">
-                        @Html.TextBox("SearchString") <input type="submit" value="Search" />
+                        @Html.TextBox("SearchString", null, new { style="height:27px;border-radius:4px;"}) <input type="submit" value="Search" style="background-color: #4e4e4e;
+                                                                                                                                                        border: none;
+                                                                                                                                                        color: white;
+                                                                                                                                                        
+                                                                                                                                                        text-align: center;
+                                                                                                                                                        text-decoration: none;
+                                                                                                                                                        display: inline-block;
+                                                                                                                                                        font-size: 16px;
+                                                                                                                                                        padding: 3px;
+                                                                                                                                                        border-radius: 4px;"/>
                     </div>
                 }
 
