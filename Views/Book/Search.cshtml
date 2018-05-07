@@ -1,0 +1,19 @@
+@model List<BookStore.Models.ViewModels.BookListViewModel>
+
+@{
+    var bookList = @Model;
+}
+
+@if(bookList.Count > 0)
+{
+    <h2>@bookList.Count results found!</h2>
+    @foreach(var book in bookList)
+    {
+        <h1>@book.Name</h1>
+    }
+}
+
+else
+{
+    <h2>No matching results :c </h2>
+}

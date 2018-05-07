@@ -20,6 +20,11 @@ namespace BookStore.Services
             return books;
         }
 
+        public List<BookListViewModel> SearchBooks(string searchString)
+        {
+            return _bookRepo.SearchBooks(searchString);
+        }
+
 /*        public Book FindBook(int ID)
         {
             return _bookRepo.FindBook(ID);

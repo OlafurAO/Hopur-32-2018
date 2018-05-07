@@ -1,20 +1,14 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace BookStore.Data.EntityModels
 {
     public class Cart
     {
-        public int _quantity;
-        public class CartContents
-        {
-            public int ID { get; set; }
-
-            public Book Book { get; set; }
-        }
-
-        public CartContents _cartContents;
-
-        public Cart()
-        {
-            _cartContents = new CartContents();
-        }
+        [Key]
+        public int ID { get; set; }
+        public string CartID { get; set; }
+        public int BookID { get; set; }
+        public int Quantity { get; set; }
+        public virtual Book Book { get; set; }        
     }
 }

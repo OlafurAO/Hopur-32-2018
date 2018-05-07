@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BookStore.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
         private AuthorService _authorService;

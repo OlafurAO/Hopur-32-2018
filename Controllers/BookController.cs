@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BookStore.Controllers
 {
-    [Authorize]
     public class BookController : Controller
     {
         private BookService _bookService;
@@ -36,5 +35,18 @@ namespace BookStore.Controllers
 
             return View(book);
         } 
+
+
+        [HttpGet("/Book/Search")]
+        public IActionResult Search(string searchString)
+        {
+            if(string.IsNullOrEmpty(searchString))
+            {
+                Console.WriteLine("empty string!");
+            }
+
+            var bookList = _bookService.SearchBooks(searchString);
+            return View(bookList);
+        }
     }
 }

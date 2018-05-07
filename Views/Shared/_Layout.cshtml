@@ -34,6 +34,19 @@
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                 </ul>
+
+                @using(Html.BeginForm("Search", "Book", FormMethod.Get))
+                {
+                    <div style="position:absolute;top:25%;right:60%">
+                        @Html.TextBox("SearchString") <input type="submit" value="Search" />
+                    </div>
+                }
+
+               @*<form asp-controller="Book" asp-action="Search">
+                        <input type="text" name="SearchString" placeholder="Search" style="position:absolute;top:25%;">
+                        <input type="submit" value="Search" class = "btn btn-info" style="position:absolute;top:25%;right:60%" />
+                </form>*@
+
                 @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>

@@ -7,44 +7,39 @@ using Microsoft.AspNetCore.Mvc;
 using BookStore.Data.EntityModels;
 using BookStore.Services;
 using BookStore.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BookStore.Controllers
 {
+    [Authorize]
     public class CartController : Controller
     {
         private BookService _bookService;
 
-        private Cart _cart;
+        private CartService _cartService;
 
         private DataContext _db;
 
         public CartController()
         {
             _bookService = new BookService();
-            _cart = new Cart();
+            _cartService = new CartService();
             _db = new DataContext();
         }
 
         [HttpGet("/Cart/AddToCart")]
         public IActionResult AddToCart(int ID)       
         {
-           var book = _bookService.GetAllBooks().Find(x => x.ID == ID);
-           //var book = _bookService.FindBook(ID);
-
-            _cart._quantity += 1;
-
-
-
-            //_db.Add(new Cart.CartContents{Book = book});
+            var book = _bookService.GetAllBooks().Find(x => x.ID == ID);
+            //_cartService.AddToCart(book);
+                        
             _db.SaveChanges();
-
             return View(book);
         }
 
         [HttpGet("/Cart/CartView")]
         public IActionResult CartView()
         {
-            
             return View();
         }
     }

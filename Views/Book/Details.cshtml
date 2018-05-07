@@ -19,16 +19,7 @@
 
     else
     {
-        @Html.ActionLink("Add to Cart", "AddToCart", "Cart", new { id = book.ID }, new { @class = "btn btn-info" })
-       
-       
-       @* 
-        <form asp-action="AddToCart" asp-controller="Cart" name=@book.ID>
-            <input type="submit" class="btn btn-default" value="Add to Cart"/>
-        </form>
-        *@
-        
-    
+        @Html.ActionLink("Add to Cart", "AddToCart", "Cart", new { id = book.ID }, new { @class = "btn btn-info" })    
     }
 
 </div>
