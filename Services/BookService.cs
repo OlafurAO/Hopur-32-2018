@@ -25,10 +25,10 @@ namespace BookStore.Services
             return _bookRepo.SearchBooks(searchString);
         }
 
-/*        public Book FindBook(int ID)
+        public List<BookListViewModel> GetTopRated()
         {
-            return _bookRepo.FindBook(ID);
+            return _bookRepo.GetTopRated();
         }
-*/
+
     }
 }  

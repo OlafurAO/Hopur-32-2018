@@ -48,5 +48,15 @@ namespace BookStore.Controllers
             var bookList = _bookService.SearchBooks(searchString);
             return View(bookList);
         }
+
+        [HttpGet("/Book/TopRated")]
+        public IActionResult TopRated()
+        {
+            var bookList = _bookService.GetTopRated();
+
+            
+            
+            return View(bookList);
+        }
     }
 }

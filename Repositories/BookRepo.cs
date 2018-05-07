@@ -60,16 +60,26 @@ namespace BookStore.Repositories
             return books;
         }
 
-/*        public Book FindBook(int ID)
+        public List<BookListViewModel> GetTopRated()
         {
-            var book = (from a in _db.Books
-                        where a.ID == ID
-                        select new Book());
+            var books = (from a in _db.Books
+                        orderby a.Rating descending
+                        join auth in _db.Authors on a.AuthorID equals auth.ID
+                        select new BookListViewModel
+                        {
+                            ID = a.ID,
+                            Name = a.Name,
+                            Author = a.Author,
+                            AuthorID = a.AuthorID,
+                            Category = a.Category,
+                            YearPublished = a.YearPublished,
+                            Price = a.Price,
+                            Rating = a.Rating,
+                            CopiesAvailable = a.CopiesAvailable,
+                            CopiesSold = a.CopiesSold
+                        }).Take(10).ToList();
 
-            return book;
+            return books;
         }
-*/
-
-
     }
 }
