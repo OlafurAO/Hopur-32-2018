@@ -6,11 +6,22 @@
 
 @if(bookList.Count > 0)
 {
-    <h2>@bookList.Count results found!</h2>
-    @foreach(var book in bookList)
-    {
-        <h1>@book.Name</h1>
-    }
+    <h2>@bookList.Count result(s) found!</h2>
+    <table style="width:100%">
+        <tr>
+            <th>Name</th>
+            <th>Author</th> 
+            <th>Category</th>
+            <th>Rating</th>
+            <th>Price</th>
+        </tr>
+        @foreach(var book in bookList)
+        {
+            <tr>
+                <td>@Html.ActionLink(book.Name, "Details", "Book", new { id = book.ID })</td> <td><a>@book.Author</a></td> <td>@book.Category</td> <td>@book.Rating</td> <td>@book.Price</td>
+            </tr>           
+        }
+    </table>
 }
 
 else

@@ -1,4 +1,6 @@
-﻿using System;
+﻿//https://github.com/OlafurAO/Hopur-32-2018
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
