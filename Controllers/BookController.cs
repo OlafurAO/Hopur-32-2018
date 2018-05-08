@@ -19,6 +19,7 @@ namespace BookStore.Controllers
             _bookService = new BookService();
         }
 
+        [HttpGet("/Book/Index")]
         public IActionResult Index()
         {
             var books = _bookService.GetAllBooks();

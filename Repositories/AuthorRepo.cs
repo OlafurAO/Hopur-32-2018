@@ -26,5 +26,18 @@ namespace BookStore.Repositories
 
             return authors;
         }
+
+        public List<AuthorListViewModel> FindBooksByAuthor(int? ID)
+        {
+            var books = (from a in _db.Authors
+                        where a.ID == ID
+                         select new AuthorListViewModel
+                         {
+                             ID = a.ID,
+                             Name = a.Name
+                         }).ToList();
+
+            return books;
+        }
     }
 }
