@@ -33,17 +33,49 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Books" asp-action="Index">Books</a></li>
+                    <li><a asp-area="" asp-controller="Books" asp-action="Index">Textbooks</a></li>
+                    <li><a asp-area="" asp-controller="Books" asp-action="Index">Audiobooks</a></li>
+                    <li><a asp-area="" asp-controller="Book" asp-action="TopRated">Top Rated</a></li>
                 </ul>
+
+                @using(Html.BeginForm("Search", "Book", FormMethod.Get))
+                {
+                    <div style="position:absolute;top:25%;right:35%">
+                        @Html.TextBox("SearchString", null, new { style="height:27px;border-radius:4px;"}) <input type="submit" value="Search" style="background-color: #4e4e4e;
+                                                                                                                                                        border: none;
+                                                                                                                                                        color: white;
+                                                                                                                                                        
+                                                                                                                                                        text-align: center;
+                                                                                                                                                        text-decoration: none;
+                                                                                                                                                        display: inline-block;
+                                                                                                                                                        font-size: 16px;
+                                                                                                                                                        padding: 3px;
+                                                                                                                                                        border-radius: 4px;"/>
+                    </div>
+                }
+
+               @*<form asp-controller="Book" asp-action="Search">
+                        <input type="text" name="SearchString" placeholder="Search" style="position:absolute;top:25%;">
+                        <input type="submit" value="Search" class = "btn btn-info" style="position:absolute;top:25%;right:60%" />
+                </form>*@
+
                 @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>
     </nav>
+    
     <div class="container body-content">
         @RenderBody()
         <hr />
+
+
+        @* Footer *********************@
         <footer>
-            <p>&copy; 2018 - BookStore</p>
+           @Html.Partial("_FooterPartial")           
         </footer>
+
+
     </div>
 
     <environment include="Development">

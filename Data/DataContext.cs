@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using BookStore.Data.EntityModels;
+using BookStore.Models;
 
 namespace BookStore.Data
 {
@@ -7,6 +8,11 @@ namespace BookStore.Data
     {
         public DbSet<Book> Books { get; set;}
         public DbSet<Author> Authors { get; set;}
+
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<OrderDetails> OrderDetails { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -1,4 +1,6 @@
-﻿using System;
+﻿//https://github.com/OlafurAO/Hopur-32-2018
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -53,6 +55,7 @@ namespace BookStore
                     new Book {Name = "The Hobbit", Author = "J.R.R. Tolkien", AuthorID = 1,  Category = "Fantasy", YearPublished = "1937", Price = 19.99, Rating = 4.7, CopiesAvailable = 107, CopiesSold = 320},
                     new Book {Name = "Art of War", Author = "Sun Tzu", AuthorID = 5,  Category = "Philosophy", YearPublished = "500 BC", Price = 9.99, Rating = 4.7, CopiesAvailable = 107, CopiesSold = 320},
                     new Book {Name = "The Colour of Magic", Author = "Terry Pratchet", AuthorID = 6,  Category = "Fantasy", YearPublished = "1984", Price = 19.99, Rating = 4.6, CopiesAvailable = 200, CopiesSold = 150},
+                    new Book {Name = "The Great Gatsby", Author = "F. Scott Fitzgerald", AuthorID = 7,  Category = "Romance", YearPublished = "1925", Price = 9.99, Rating = 3.6, CopiesAvailable = 200, CopiesSold = 150},
                 };
 
                 db.AddRange(initialBooks);

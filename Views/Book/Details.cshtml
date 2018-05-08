@@ -4,10 +4,12 @@
     var book = @Model;
 }
 
+<a href="javascript:history.back()"> Back </a>  
+
 <div>
-    <h3> @book.Name </h3>
+    <p> <h3> @book.Name </h3> <h4> @book.Rating</h4> </p>
     <h4> @book.Author</h4>
-    <h4> @book.Rating</h4>
+    <h4> @book.YearPublished</h4>
     <h5> @book.Price </h5>
 
 
@@ -19,10 +21,7 @@
 
     else
     {
-        <form asp-action="AddToCart", new { id = book.ID } asp-controller="Cart">
-            <input type="submit" class="btn btn-default" value="Add to Cart"/>
-        </form>
-    
+        @Html.ActionLink("Add to Cart", "AddToCart", "Cart", new { id = book.ID }, new { @class = "btn btn-info" })    
     }
 
 </div>

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using BookStore.Data.EntityModels;
 using BookStore.Models.ViewModels;
 using BookStore.Repositories;
 
@@ -18,5 +19,16 @@ namespace BookStore.Services
             var books = _bookRepo.GetAllBooks();
             return books;
         }
+
+        public List<BookListViewModel> SearchBooks(string searchString)
+        {
+            return _bookRepo.SearchBooks(searchString);
+        }
+
+        public List<BookListViewModel> GetTopRated()
+        {
+            return _bookRepo.GetTopRated();
+        }
+
     }
 }  

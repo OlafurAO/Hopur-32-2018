@@ -1,7 +1,7 @@
 ﻿@model List<BookStore.Models.ViewModels.BookListViewModel>
 @model listCategories;
 <div>
-    <h2>Check out our bestsellers!</h2>
+    <h2>Check out our favourites!</h2>
     <table style="width:100%">
         <tr>
             <th>Name</th>
@@ -13,7 +13,9 @@
         @foreach(var book in @Model)
         {
             <tr>
-                <td>@Html.ActionLink(book.Name, "Details", "Book", new { id = book.ID })</td> <td><a>@book.Author</a></td> <td>@book.Category</td> <td>@book.Rating</td> <td>@book.Price</td>
+                <td>@Html.ActionLink(book.Name, "Details", "Book", new { id = book.ID })</td> 
+                <td>@Html.ActionLink(book.Author, "Details", "Author", new { id = book.AuthorID })</td> 
+                <td>@book.Category</td> <td>@book.Rating</td> <td>@book.Price</td>
             </tr>           
         }
     </table>
@@ -34,24 +36,9 @@
             @if(book.Category == "Fantasy")
             {
                 <tr>
-                    <td><a>@book.Name</a></td> <td><a>@book.Author</a></td> <td>@book.Category</td> <td>@book.Rating</td> <td>@book.Price</td>
+                    <td>@Html.ActionLink(book.Name, "Details", "Book", new { id = book.ID })</td> <td><a>@book.Author</a></td> <td>@book.Category</td> <td>@book.Rating</td> <td>@book.Price</td>
                 </tr>
             }            
         }
     </table>
 </div>
-
-    <h2>Categories</h2>
-  <div>
-    <table>
-      <ul>
-        @foreach(var book in @Model.Categories)
-        {
-                <tr>
-                    <p><a>@book.Category</a></p>
-                </tr>
-        }
-      </ul>
-    </table>
-
-  </div>

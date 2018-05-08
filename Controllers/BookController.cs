@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BookStore.Controllers
 {
-    [Authorize]
     public class BookController : Controller
     {
         private BookService _bookService;
@@ -32,9 +31,32 @@ namespace BookStore.Controllers
         {
             var book = _bookService.GetAllBooks().Find(x => x.ID == ID);
 
-            var books = _bookService.GetAllBooks();
+            Console.WriteLine("book controller working");
 
             return View(book);
         } 
+
+
+        [HttpGet("/Book/Search")]
+        public IActionResult Search(string searchString)
+        {
+            if(string.IsNullOrEmpty(searchString))
+            {
+                Console.WriteLine("empty string!");
+            }
+
+            var bookList = _bookService.SearchBooks(searchString);
+            return View(bookList);
+        }
+
+        [HttpGet("/Book/TopRated")]
+        public IActionResult TopRated()
+        {
+            var bookList = _bookService.GetTopRated();
+
+            
+            
+            return View(bookList);
+        }
     }
 }
