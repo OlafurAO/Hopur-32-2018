@@ -1,0 +1,11 @@
+@model List<BookStore.Models.ViewModels.CartListViewModel>
+
+
+@{
+    var itemList = @Model;
+}
+
+@foreach(var item in itemList)
+{
+    <h1>@item.Book.Name</h1>
+}
