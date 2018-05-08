@@ -1,5 +1,5 @@
 ﻿@model List<BookStore.Models.ViewModels.BookListViewModel>
-
+@model listCategories;
 <div>
     <h2>Check out our bestsellers!</h2>
     <table style="width:100%">
@@ -40,3 +40,18 @@
         }
     </table>
 </div>
+
+    <h2>Categories</h2>
+  <div>
+    <table>
+      <ul>
+        @foreach(var book in @Model.Categories)
+        {
+                <tr>
+                    <p><a>@book.Category</a></p>
+                </tr>
+        }
+      </ul>
+    </table>
+
+  </div>

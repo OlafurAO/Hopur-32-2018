@@ -1,0 +1,15 @@
+@model Bookstore.Services; 
+    <h1>Categories</h1>
+  <div>
+    <table>
+      <ul>
+        @foreach(string b in @Model.GetCategories)
+        {
+                <tr>
+                    <p>@Services.filter()</p>
+                </tr>
+        }
+      </ul>
+    </table>
+
+  </div>
