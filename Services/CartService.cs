@@ -12,6 +12,7 @@ namespace BookStore.Services
     {
         DataContext _cartDb;
         public int CartID  { get; set; }
+        public string ID  { get; set; }
         public CartService()
         {
             _cartDb = new DataContext();
@@ -29,19 +30,22 @@ namespace BookStore.Services
                 {
                     BookID = book.ID,
                     ID = CartID,
+                    CartID = ID,
                     Quantity = 1,
                 };
                 _cartDb.Carts.Add(item);
             }
 
+            else
+            {
+                item.Quantity++;
+            }
+
             _cartDb.SaveChanges();
         }
 
-        public List<CartListViewModel> GetCartItems()
+        public List<CartListViewModel> GetAllItems()
         {
-            //return _cartDb.Carts.Where(
-              //  c => c.ID == CartID).ToList();
-
             var items = (from a in _cartDb.Carts
                         select new CartListViewModel
                         {
@@ -51,6 +55,62 @@ namespace BookStore.Services
                         }).ToList();
 
             return items;
+        }
+
+        public void RemoveCartItem(int? bookID)
+        {
+            var removedItem = _cartDb.Carts.First(c => c.CartID == ID
+                                                    && c.BookID == bookID);
+            
+            if(removedItem != null)
+            {
+                _cartDb.Carts.RemoveRange(removedItem);
+                _cartDb.SaveChanges();
+            }
+        }
+
+        public void ClearCart()
+        {
+            //var remove = _cartDb.Carts.Select(c => c.CartID == ID);
+            var remove = (from a in _cartDb.Carts
+                          where a.CartID == ID
+                          select a).ToList();
+
+            if(remove != null)
+            {
+                _cartDb.Carts.RemoveRange(remove);
+            }
+
+            foreach(var a in remove)
+            {
+                Console.WriteLine(a.BookID);
+            }
+
+            
+        }
+
+        public double GetTotalCartPrice()
+        {
+            double total = 0;
+
+            foreach(var price in _cartDb.Carts)
+            {
+                total += price.Book.Price;
+            }
+
+            return total;
+        }
+
+        public int GetNumberOfItems()
+        {
+            int total = 0;
+
+            foreach(var item in _cartDb.Carts)
+            {
+                total++;
+            }
+
+            return total;
         }
     }
 }  

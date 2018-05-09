@@ -1,0 +1,37 @@
+@model BookStore.Models.Order
+
+@{
+    var order = @Model;
+}
+
+<a href="javascript:history.back()"> Back </a>
+
+<h2>Order Summary</h2>
+<ul style="list-style: none">
+    <li> @order.FirstName @order.LastName </li>
+    <li> @order.Address</li>
+    @*<li> @order.BillingAddress</li>*@
+    <li> @order.City</li>
+    <li> @order.ZipCode</li>
+    <li> @order.Address</li>
+    <li> @order.Country</li>
+    <li> @order.OrderDate</li>
+</ul>
+
+<div>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+        @foreach(var item in order.Cart)
+        {
+            <tr> <td>@item.Book.Name</td> <td>@item.Quantity</td> <td>$@item.Book.Price</td></tr>
+        }
+    </table>
+
+    <p>@order.Total</p>
+
+    @Html.ActionLink("Confirm", "ConfirmOrder", "Order", new { @Model })
+</div>

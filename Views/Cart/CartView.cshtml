@@ -1,11 +1,36 @@
 @model List<BookStore.Models.ViewModels.CartListViewModel>
 
-
 @{
     var itemList = @Model;
+    double totalPrice = 0;
+    int totalItems = 0;
 }
 
-@foreach(var item in itemList)
+<h2>Your Cart</h2>
+
+<table style="border-collapse: separate;border-spacing: 50px 0;">
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+    <tr>
+    @foreach(var item in itemList)
+    {
+        <tr>
+            <td> @Html.ActionLink(item.Book.Name, "Details", "Book", new { id = item.Book.ID }) </td>  
+            <td> $@item.Book.Price </td> 
+            <td> @item.Quantity </td>
+            <td> @Html.ActionLink("Remove", "RemoveCartItem", "Cart", new { id = item.Book.ID })</td>
+        </tr>
+        
+        totalPrice += @item.Book.Price;
+        totalItems++;
+    }
+</table>
+
+<p>Total: $@totalPrice                          @totalItems items </p>
+
+@if(@Model.Count > 0)
 {
-    <h1>@item.Book.Name</h1>
+    @Html.ActionLink("Proceed to Checkout", "UserInfo", "Order", null, new { @class = "btn btn-info" })
 }

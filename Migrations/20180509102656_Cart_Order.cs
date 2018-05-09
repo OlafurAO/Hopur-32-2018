@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace BookStore.Migrations
 {
-    public partial class Cart_Table : Migration
+    public partial class Cart_Order : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -40,7 +40,7 @@ namespace BookStore.Controllers
         [HttpGet("/Cart/CartView")]
         public IActionResult CartView()
         {
-            var items = _cartService.GetCartItems();
+            var items = _cartService.GetAllItems();
 
             if(items == null)
             {
@@ -48,6 +48,13 @@ namespace BookStore.Controllers
             }
 
             return View(items);
+        }
+
+        [HttpGet("/Cart/RemoveCartItem")]
+        public IActionResult RemoveCartItem(int? ID)
+        {                       
+            _cartService.RemoveCartItem(ID);
+            return View();
         }
     }
 }

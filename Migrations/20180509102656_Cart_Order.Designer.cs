@@ -11,8 +11,8 @@ using System;
 namespace BookStore.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20180507102903_added_cart")]
-    partial class added_cart
+    [Migration("20180509102656_Cart_Order")]
+    partial class Cart_Order
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -86,11 +86,11 @@ namespace BookStore.Migrations
 
                     b.Property<string>("Address");
 
+                    b.Property<string>("BillingAddress");
+
                     b.Property<string>("City");
 
                     b.Property<string>("Country");
-
-                    b.Property<string>("Email");
 
                     b.Property<string>("FirstName");
 
@@ -98,11 +98,9 @@ namespace BookStore.Migrations
 
                     b.Property<DateTime>("OrderDate");
 
-                    b.Property<string>("PostalCode");
-
-                    b.Property<string>("Region");
-
                     b.Property<double>("Total");
+
+                    b.Property<string>("ZipCode");
 
                     b.HasKey("ID");
 
@@ -147,7 +145,7 @@ namespace BookStore.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("BookStore.Models.Order", "Order")
-                        .WithMany("OrderDetails")
+                        .WithMany()
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
