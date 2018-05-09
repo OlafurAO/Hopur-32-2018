@@ -19,7 +19,7 @@ namespace BookStore.Services
             return authors;
         }
 
-        public List<AuthorListViewModel> FindBooksByAuthor(int? ID)
+        public List<BookListViewModel> FindBooksByAuthor(int? ID)
         {
             var books = _authorRepo.FindBooksByAuthor(ID);
 

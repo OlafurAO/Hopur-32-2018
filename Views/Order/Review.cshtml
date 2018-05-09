@@ -6,19 +6,20 @@
 
 <a href="javascript:history.back()"> Back </a>
 
-<h2>Order Summary</h2>
+<h1>Order Summary</h1>
+<h2>Your Information</h2>
 <ul style="list-style: none">
     <li> @order.FirstName @order.LastName </li>
-    <li> @order.Address</li>
-    @*<li> @order.BillingAddress</li>*@
+    <li> @order.BillingAddress</li>
+    <li> @order.ShippingAddress</li>
     <li> @order.City</li>
     <li> @order.ZipCode</li>
-    <li> @order.Address</li>
     <li> @order.Country</li>
     <li> @order.OrderDate</li>
 </ul>
 
 <div>
+    <h2>Your Cart</h2>
     <table>
         <tr>
             <th>Name</th>
@@ -31,7 +32,7 @@
         }
     </table>
 
-    <p>@order.Total</p>
+    <p>Total: $@order.Total</p>
 
-    @Html.ActionLink("Confirm", "ConfirmOrder", "Order", new { @Model })
+    @Html.ActionLink("Confirm", "ConfirmOrder", "Order", new { order })
 </div>

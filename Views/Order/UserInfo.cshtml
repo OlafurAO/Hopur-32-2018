@@ -2,6 +2,7 @@
 
 @{
     var cartList = @Model;
+    double totalPrice = 0;
 }
 
 <a href="javascript:history.back()"> Back </a>
@@ -23,17 +24,17 @@
             Billing Address:<br>
             @Html.TextBox("BillingAddress", null, new {required="required", style="height:27px;border-radius:4px;"}) <br>
 
-            Street Name:<br>
-            @Html.TextBox("StreetName", null, new {required="required", style="height:27px;border-radius:4px;"}) <br>
-
-            House Number:<br>
-            @Html.TextBox("HouseNumber", null, new {required="required", style="height:27px;border-radius:4px;"}) <br>
-
             City:<br>
             @Html.TextBox("City", null, new {required="required", style="height:27px;border-radius:4px;"}) <br>
 
             Country:<br>
-            @Html.TextBox("Country", null, new {required="required", style="height:27px;border-radius:4px;"}) <br>
+            <select>
+                <option value="UnitedStates">United States</option>
+                <option value="Iceland">Iceland</option>
+                <option value="UnitedKingdom"> United Kingdom</option>
+                <option value="Sweden">Sweden</option>
+            </select> <br>
+           @* @Html.TextBox("Country", null, new {required="required", style="height:27px;border-radius:4px;"}) <br> *@
 
             Zip Code:<br>
             @Html.TextBox("ZipCode", null, new {required="required", style="height:27px;border-radius:4px;"})<br>
@@ -56,10 +57,12 @@
             <tr>               
                 <td>@item.Book.Name</td>
                 <td>@item.Quantity</td>
-                <td>@item.Book.Price </td>
+                <td>$@item.Book.Price </td>
             </tr>
+
+            totalPrice += @item.Book.Price;
         }
     <table>
-    <p>Total: </p>
+    <p>Total: $@totalPrice</p>
 </div>
 

@@ -11,8 +11,8 @@ using System;
 namespace BookStore.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20180508111740_Categories_added")]
-    partial class Categories_added
+    [Migration("20180509163649_ble")]
+    partial class ble
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -96,13 +96,11 @@ namespace BookStore.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Address");
+                    b.Property<string>("BillingAddress");
 
                     b.Property<string>("City");
 
                     b.Property<string>("Country");
-
-                    b.Property<string>("Email");
 
                     b.Property<string>("FirstName");
 
@@ -110,37 +108,29 @@ namespace BookStore.Migrations
 
                     b.Property<DateTime>("OrderDate");
 
-                    b.Property<string>("PostalCode");
-
-                    b.Property<string>("Region");
+                    b.Property<string>("ShippingAddress");
 
                     b.Property<double>("Total");
+
+                    b.Property<string>("ZipCode");
 
                     b.HasKey("ID");
 
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("BookStore.Models.OrderDetails", b =>
+            modelBuilder.Entity("BookStore.Models.OrderHistory", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("BookID");
-
-                    b.Property<int>("OrderId");
-
-                    b.Property<double>("Price");
-
-                    b.Property<int>("Quantity");
+                    b.Property<int?>("OrderID");
 
                     b.HasKey("ID");
 
-                    b.HasIndex("BookID");
+                    b.HasIndex("OrderID");
 
-                    b.HasIndex("OrderId");
-
-                    b.ToTable("OrderDetails");
+                    b.ToTable("OrderHistory");
                 });
 
             modelBuilder.Entity("BookStore.Data.EntityModels.Cart", b =>
@@ -151,17 +141,11 @@ namespace BookStore.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("BookStore.Models.OrderDetails", b =>
+            modelBuilder.Entity("BookStore.Models.OrderHistory", b =>
                 {
-                    b.HasOne("BookStore.Data.EntityModels.Book", "Book")
-                        .WithMany()
-                        .HasForeignKey("BookID")
-                        .OnDelete(DeleteBehavior.Cascade);
-
                     b.HasOne("BookStore.Models.Order", "Order")
-                        .WithMany("OrderDetails")
-                        .HasForeignKey("OrderId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .WithMany()
+                        .HasForeignKey("OrderID");
                 });
 #pragma warning restore 612, 618
         }

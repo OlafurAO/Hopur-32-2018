@@ -12,6 +12,8 @@ namespace BookStore.Data
         public DbSet<Category> Categories{get; set;}
         public DbSet<Cart> Carts { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderHistory> OrderHistory { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -40,8 +40,6 @@ namespace BookStore.Controllers
 
             if(result.Succeeded)
             {
-                //User registration successful
-                //Add Concatenated first and last name as fullName in claims
                 await _userManager.AddClaimAsync(user, new Claim("Name", $"{model.FirstName} {model.LastName}"));
                 await _signInManager.SignInAsync(user, false);
 

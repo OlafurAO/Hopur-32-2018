@@ -13,10 +13,12 @@ namespace BookStore.Controllers
     public class BookController : Controller
     {
         private BookService _bookService;
+        private CommentService _commentService;
 
         public BookController()
         {
             _bookService = new BookService();
+            _commentService = new CommentService();
         }
 
         [HttpGet("/Book/Index")]
@@ -60,5 +62,35 @@ namespace BookStore.Controllers
             return View(bookList);
         }
 
+        [HttpGet("/Book/GetComments")]
+        public IActionResult GetComments(int? ID)
+        {
+            var comments = _commentService.GetComments(ID);
+            return View(comments);
         }
+
+        [HttpGet("/Book/CommentPage")]
+        public IActionResult CommentPage(int? ID)
+        {
+            return View(ID);
+        }
+
+        [HttpGet("/Book/AddComment")]
+        public IActionResult AddComment(string Name, string CommentBody, int ID)
+        {
+            Console.WriteLine(ID);
+            _commentService.AddComment(ID, Name, CommentBody);
+            return View(ID);
+        }
+
+        [HttpGet("/Book/Rate")]
+        public IActionResult Rate(int? ID)
+        {
+            _bookService.AddRating(ID);
+            return View();
+        }
+
+        //[Authorize]
+
+    }
 }

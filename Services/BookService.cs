@@ -33,8 +33,13 @@ namespace BookStore.Services
             return _bookRepo.GetTopRated();
         }
 
-    public List<CategoryListViewModel> GetCategories(){
+        public List<CategoryListViewModel> GetCategories(){
             return _categoriesrepo.GetAllCategories();
+        }
+
+        public void AddRating(int? ID)
+        {
+            
         }
 
     }

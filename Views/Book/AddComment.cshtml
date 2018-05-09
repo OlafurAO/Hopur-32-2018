@@ -1,0 +1,4 @@
+@model Int32
+
+<h2>Your comment has been posted!</h2>
+@Html.ActionLink("Home", "Details", "Book", new { id = @Model }, new { @class = "btn btn-info" })

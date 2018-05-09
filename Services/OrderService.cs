@@ -18,14 +18,12 @@ namespace BookStore.Services
         }
 
         public Order SaveOrder(CartService cs, List<CartListViewModel> cart, string firstName, string lastName, string shippingAddress, string billingAddress, 
-        string streetName, string houseNumber, string city, string country, string zipCode)
+        string city, string country, string zipCode)
         {
-            Console.WriteLine("working");
-
             var order = new Order{
                         FirstName = firstName,
                         LastName = lastName,
-                        Address = shippingAddress,
+                        ShippingAddress = shippingAddress,
                         BillingAddress = billingAddress,
                         City = city,
                         Total = cs.GetTotalCartPrice(),
@@ -40,14 +38,8 @@ namespace BookStore.Services
 
         public void ConfirmOrder(Order order)
         {
-            _orderDb.Orders.Add(order);
+            _orderDb.Add(order);
             _orderDb.SaveChanges();
         }
-
-       /* public Order GetOrder()
-        {
-            
-        }*/
-
     }
 }  
