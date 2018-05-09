@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using BookStore.Data;
 using BookStore.Data.EntityModels;
 using BookStore.Models;
@@ -38,6 +39,19 @@ namespace BookStore.Services
 
         public void ConfirmOrder(Order order)
         {
+            /*  
+            if(order != null)
+            {
+                order.Cart.All(x => { x.Book.CopiesAvailable--; return true; });
+                order.Cart.All(x => { x.Book.CopiesSold++; return true; });
+            }
+
+            else
+            {
+                Console.WriteLine("empty");
+            }
+             */
+            
             _orderDb.Add(order);
             _orderDb.SaveChanges();
         }
