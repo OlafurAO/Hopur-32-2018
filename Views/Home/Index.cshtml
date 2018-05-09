@@ -14,7 +14,7 @@
             <tr>
                 <td>@Html.ActionLink(book.Name, "Details", "Book", new { id = book.ID })</td> 
                 <td>@Html.ActionLink(book.Author, "Details", "Author", new { id = book.AuthorID })</td> 
-                <td>@book.Category</td> <td>@book.Rating</td> <td>@book.Price</td>
+                <td>@book.Category</td> <td>@book.Rating</td> <td>$@book.Price</td>
             </tr>           
         }
     </table>
@@ -35,9 +35,9 @@
             @if(book.Category == "Fantasy")
             {
                 <tr>
-                    <td>@Html.ActionLink(book.Name, "Details", "Book", new { id = book.ID })</td> <td><a>@book.Author</a></td> <td>@book.Category</td> <td>@book.Rating</td> <td>@book.Price</td>
+                    <td>@Html.ActionLink(book.Name, "Details", "Book", new { id = book.ID })</td> <td><a>@book.Author</a></td> <td>@book.Category</td> <td>@book.Rating</td> <td>$@book.Price</td>
                 </tr>
-            }            
+            }
         }
     </table>
 </div>

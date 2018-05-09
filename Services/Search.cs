@@ -8,35 +8,19 @@ namespace BookStore.Services
 {
   public class Search
   {
+        private CategoryRepo _categories; 
+        public Search(){
+            _categories = new CategoryRepo();
 
-        private DataContext _db;
-
-    public Search() => _db = new DataContext();
-    public List<BookListViewModel> Filter()
+        }
+    public List<BookListViewModel> Filter(int? i)
         {
-            string category = "Fantasy"; 
-              var books = (from a in _db.Books
-               where a.Category == category
-                        select new BookListViewModel
-                         {
-                             ID = a.ID,
-                             Name = a.Name,
-                             Author = a.Author,
-                             AuthorID = a.AuthorID,
-                             Category = a.Category,
-                             YearPublished = a.YearPublished,
-                             Price = a.Price,
-                             Rating = a.Rating,
-                             CopiesAvailable = a.CopiesAvailable,
-                             CopiesSold = a.CopiesSold
-                         }).ToList();
-             return books;
+            var result = _categories.FindBooksByCategory(i);
+             return result;
              }
-    public static List<string> GetCategories(){
-        List<string> categories = new List<string>();
-            categories.Add("Fantasy");
-            categories.Add("Philosofy");
-            return categories;
+    public  List<CategoryListViewModel> GetCategories(){
+        var categories = _categories.GetAllCategories();
+        return categories; 
     }
     }
 

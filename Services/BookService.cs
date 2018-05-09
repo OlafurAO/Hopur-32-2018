@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using BookStore.Data.EntityModels;
 using BookStore.Models.ViewModels;
@@ -8,10 +9,12 @@ namespace BookStore.Services
     public class BookService
     {
         private BookRepo _bookRepo;
+        private CategoryRepo _categoriesrepo;
 
         public BookService()
         {
             _bookRepo = new BookRepo();
+            _categoriesrepo = new CategoryRepo();
         }
 
         public List<BookListViewModel> GetAllBooks()
@@ -28,6 +31,10 @@ namespace BookStore.Services
         public List<BookListViewModel> GetTopRated()
         {
             return _bookRepo.GetTopRated();
+        }
+
+    public List<CategoryListViewModel> GetCategories(){
+            return _categoriesrepo.GetAllCategories();
         }
 
     }

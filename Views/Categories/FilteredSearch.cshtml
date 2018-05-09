@@ -1,0 +1,18 @@
+@model List<BookStore.Models.ViewModels.CategoryListViewModel>;
+  @{
+    var categorylist = @Model;
+  }
+    <h1>Categories</h1>
+  <div>
+    <table>
+      <ul>
+        @foreach(var b in @Model)
+        {
+                <tr>
+                <td>@Html.ActionLink(b.Name, "Details", "Categories", new { id = b.Id })</td> 
+                </tr>
+        }
+      </ul>
+    </table>
+
+  </div>

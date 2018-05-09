@@ -57,10 +57,25 @@ namespace BookStore
                     new Book {Name = "The Colour of Magic", Author = "Terry Pratchet", AuthorID = 6,  Category = "Fantasy", YearPublished = "1984", Price = 19.99, Rating = 4.6, CopiesAvailable = 200, CopiesSold = 150},
                     new Book {Name = "The Great Gatsby", Author = "F. Scott Fitzgerald", AuthorID = 7,  Category = "Romance", YearPublished = "1925", Price = 9.99, Rating = 3.6, CopiesAvailable = 200, CopiesSold = 150},
                 };
-
                 db.AddRange(initialBooks);
                 db.SaveChanges();   
             }
+            if(!db.Categories.Any())
+            {            
+                var initialCategories = new List<Category>()
+                {
+                    new Category {Name = "Horror"},
+                    new Category {Name = "Fantasy"},
+                    new Category {Name = "Psychology"},
+                    new Category {Name = "History"},
+                    new Category {Name = "AudioBooks"}
+                };
+                db.AddRange(initialCategories);
+                db.SaveChanges(); 
+                }
+
+
+
+            }
         }
     }
-}
