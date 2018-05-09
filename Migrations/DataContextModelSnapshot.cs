@@ -97,11 +97,11 @@ namespace BookStore.Migrations
 
                     b.Property<string>("Address");
 
+                    b.Property<string>("BillingAddress");
+
                     b.Property<string>("City");
 
                     b.Property<string>("Country");
-
-                    b.Property<string>("Email");
 
                     b.Property<string>("FirstName");
 
@@ -109,11 +109,9 @@ namespace BookStore.Migrations
 
                     b.Property<DateTime>("OrderDate");
 
-                    b.Property<string>("PostalCode");
-
-                    b.Property<string>("Region");
-
                     b.Property<double>("Total");
+
+                    b.Property<string>("ZipCode");
 
                     b.HasKey("ID");
 
@@ -158,7 +156,7 @@ namespace BookStore.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("BookStore.Models.Order", "Order")
-                        .WithMany("OrderDetails")
+                        .WithMany()
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

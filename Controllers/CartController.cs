@@ -31,15 +31,29 @@ namespace BookStore.Controllers
         public IActionResult AddToCart(int ID)       
         {
             var book = _bookService.GetAllBooks().Find(x => x.ID == ID);
-            //_cartService.AddToCart(book);
+            _cartService.AddToCart(book);
                         
-            _db.SaveChanges();
+            //_db.SaveChanges();
             return View(book);
         }
 
         [HttpGet("/Cart/CartView")]
         public IActionResult CartView()
         {
+            var items = _cartService.GetAllItems();
+
+            if(items == null)
+            {
+                Console.WriteLine("Empty Cart");
+            }
+
+            return View(items);
+        }
+
+        [HttpGet("/Cart/RemoveCartItem")]
+        public IActionResult RemoveCartItem(int? ID)
+        {                       
+            _cartService.RemoveCartItem(ID);
             return View();
         }
     }

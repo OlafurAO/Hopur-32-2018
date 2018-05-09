@@ -1,0 +1,65 @@
+@model List<BookStore.Models.ViewModels.CartListViewModel>
+
+@{
+    var cartList = @Model;
+}
+
+<a href="javascript:history.back()"> Back </a>
+
+@using(Html.BeginForm("Review", "Order", FormMethod.Get))
+{
+    <div style="display: inline-block;vertical-align: top;">
+        <h2>Input Your Information</h2>
+        <form>
+            First name:<br>
+            @Html.TextBox("FirstName", null, new {required="required", style="height:27px;border-radius:4px;"})<br>
+
+            Last name:<br>
+            @Html.TextBox("LastName", null, new {required="required", style="height:27px;border-radius:4px;"})<br>
+
+            Shipping Address:<br>
+            @Html.TextBox("ShippingAddress", null, new {required="required", style="height:27px;border-radius:4px;"}) <br>
+
+            Billing Address:<br>
+            @Html.TextBox("BillingAddress", null, new {required="required", style="height:27px;border-radius:4px;"}) <br>
+
+            Street Name:<br>
+            @Html.TextBox("StreetName", null, new {required="required", style="height:27px;border-radius:4px;"}) <br>
+
+            House Number:<br>
+            @Html.TextBox("HouseNumber", null, new {required="required", style="height:27px;border-radius:4px;"}) <br>
+
+            City:<br>
+            @Html.TextBox("City", null, new {required="required", style="height:27px;border-radius:4px;"}) <br>
+
+            Country:<br>
+            @Html.TextBox("Country", null, new {required="required", style="height:27px;border-radius:4px;"}) <br>
+
+            Zip Code:<br>
+            @Html.TextBox("ZipCode", null, new {required="required", style="height:27px;border-radius:4px;"})<br>
+
+            <input type="submit" value="Confirm Information" />
+        </form>
+    </div>
+}
+
+<div style="display: inline-block; vertical-align: top;">
+    <h3>Cart</h3>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        <tr>
+        @foreach(var item in cartList)
+        {
+            <tr>               
+                <td>@item.Book.Name</td>
+                <td>@item.Quantity</td>
+                <td>@item.Book.Price </td>
+            </tr>
+        }
+    <table>
+    <p>Total: </p>
+</div>
+
