@@ -13,22 +13,22 @@ namespace BookStore.Controllers
     public class CategoriesController : Controller
     {
         private BookService _bookService;
-        private Search _CategoryService;
+        private CategoryService _categoryService;
                 public CategoriesController()
         {
             _bookService = new BookService();
-            _CategoryService = new Search();
+            _categoryService = new CategoryService();
         }
 
         [HttpGet("/Book/FilteredSearch")]
         public IActionResult FilteredSearch()
         {
-            var filterd = _bookService.GetCategories();
+            var filterd = _categoryService.GetCategories();
             return View(filterd);
         }
         [HttpGet("/Categories/Details")]
-        public IActionResult FilteredSearch(int? ID){
-          var categories = _CategoryService.Filter(ID);
+        public IActionResult Details(int? ID){
+          var categories = _categoryService.Filter(ID);
           Console.WriteLine("ja");
           return View(categories);
 

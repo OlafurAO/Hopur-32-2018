@@ -6,10 +6,10 @@ using BookStore.Repositories;
 
 namespace BookStore.Services
 {
-  public class Search
+  public class CategoryService
   {
         private CategoryRepo _categories; 
-        public Search(){
+        public CategoryService(){
             _categories = new CategoryRepo();
 
         }
