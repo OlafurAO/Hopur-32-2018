@@ -1,6 +1,7 @@
 @model List<BookStore.Models.ViewModels.CategoryListViewModel>
 
-@foreach(book in @Model)
+
+@foreach(var book in @Model)
 {
     <h1>@book.Id</h1>
 }
