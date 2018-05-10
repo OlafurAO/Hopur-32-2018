@@ -14,7 +14,7 @@
             <tr>
                 <td>@Html.ActionLink(book.Name, "Details", "Book", new { id = book.ID })</td> 
                 <td>@Html.ActionLink(book.Author, "Details", "Author", new { id = book.AuthorID })</td> 
-                <td>@Html.ActionLink(book.Category, "Details", "Categories", new { Category = book.Category })</td> 
+                <td>@Html.ActionLink(book.Category, "Details", "Categories", new { id = book.Category })</td> 
                 <td>@book.Rating.ToString("0.##")</td> <td>$@book.Price</td>
             </tr>           
         }
@@ -25,7 +25,7 @@
     <h2>Fantasy Classics</h2>
     <table style="width:100%">
         <tr>
-            <th>Name</th>
+            <th>Name</th>;
             <th>Author</th> 
             <th>Category</th>
             <th>Rating</th>
@@ -45,4 +45,3 @@
         }
     </table>
 </div>
-  </div>

@@ -13,7 +13,7 @@ namespace BookStore.Services
             _categories = new CategoryRepo();
 
         }
-    public List<BookListViewModel> Filter(int? i)
+    public List<BookListViewModel> Filter(string i)
         {
             var result = _categories.FindBooksByCategory(i);
              return result;

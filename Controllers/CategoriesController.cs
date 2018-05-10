@@ -27,7 +27,7 @@ namespace BookStore.Controllers
             return View(filterd);
         }
         [HttpGet("/Categories/Details")]
-        public IActionResult Details(int? ID){
+        public IActionResult Details(string ID){
           var categories = _categoryService.Filter(ID);
           Console.WriteLine("ja");
           return View(categories);

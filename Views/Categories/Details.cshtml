@@ -2,7 +2,10 @@
 
 @{
     var bookList = @Model;
+    var genre = bookList.First().Category;
 }
+
+<h2>@genre</h2>
 
 <div>
     <table style="width:100%">
