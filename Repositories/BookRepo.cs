@@ -82,5 +82,39 @@ namespace BookStore.Repositories
 
             return books;
         }
+
+        public void AddRating(int? ID, double Rating)
+        {
+            _db.Books
+            .Where(x => x.ID.Equals(ID))
+            .ToList()
+            .ForEach(x => x.Rating = Rating);
+
+            _db.SaveChanges();
+        }
+
+        public void ChangeCopies(List<CartListViewModel> order)
+        {
+            if(order != null)
+            {
+                foreach(var o in order)
+                {
+                    _db.Books
+                    .Where(x => x.ID.Equals(o.Book.ID))
+                    .ToList()
+                    .ForEach(x => x.CopiesAvailable--);
+
+                    _db.Books
+                    .Where(x => x.ID.Equals(o.Book.ID))
+                    .ToList()
+                    .ForEach(x => x.CopiesSold++);
+                }
+            } 
+
+            else
+            {
+                Console.WriteLine("empty");
+            }           
+        }
     }
 }

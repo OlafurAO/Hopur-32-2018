@@ -43,15 +43,13 @@
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Book" asp-action="Index">Books</a></li>
-                    <li><a asp-area="" asp-controller="Book" asp-action="Index">Textbooks</a></li>
-                    <li><a asp-area="" asp-controller="Book" asp-action="Index">Audiobooks</a></li>
                     <li><a asp-area="" asp-controller="Book" asp-action="TopRated">Top Rated</a></li>
                     <li><a asp-area="" asp-controller="Book" asp-action="FilteredSearch">Categories</a></li>
                 </ul>
 
                 @using(Html.BeginForm("Search", "Book", FormMethod.Get))
                 {
-                    <div style="position:absolute;top:25%;right:25%">
+                    <div style="position:absolute;top:25%;right:40%">
                         @Html.TextBox("SearchString", null, new { style="height:27px;border-radius:4px;"}) <input type="submit" value="Search" style="background-color: #4e4e4e;
                                                                                                                                                         border: none;
                                                                                                                                                         color: white;

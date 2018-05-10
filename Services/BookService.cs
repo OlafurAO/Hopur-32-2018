@@ -37,10 +37,14 @@ namespace BookStore.Services
             return _categoriesrepo.GetAllCategories();
         }
 
-        public void AddRating(int? ID)
+        public void AddRating(int? ID, double Rating)
         {
-            
+            _bookRepo.AddRating(ID, Rating);
         }
 
+        public void ChangeCopies(List<CartListViewModel> cart)
+        {
+            _bookRepo.ChangeCopies(cart);
+        }
     }
 }  
