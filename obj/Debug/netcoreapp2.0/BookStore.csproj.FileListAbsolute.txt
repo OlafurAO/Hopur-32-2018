@@ -8,16 +8,6 @@ C:/Users/Ólafur/Desktop/VERKLEG ÖNN 2/Code/BookStore/obj/Debug/netcoreapp2.0/B
 C:/Users/Ólafur/Desktop/VERKLEG ÖNN 2/Code/BookStore/obj/Debug/netcoreapp2.0/BookStore.AssemblyInfo.cs
 C:/Users/Ólafur/Desktop/VERKLEG ÖNN 2/Code/BookStore/obj/Debug/netcoreapp2.0/BookStore.dll
 C:/Users/Ólafur/Desktop/VERKLEG ÖNN 2/Code/BookStore/obj/Debug/netcoreapp2.0/BookStore.pdb
-C:/Users/Stefan/Downloads/thinginisnasding/BookStore/bin/Debug/netcoreapp2.0/BookStore.deps.json
-C:/Users/Stefan/Downloads/thinginisnasding/BookStore/bin/Debug/netcoreapp2.0/BookStore.runtimeconfig.json
-C:/Users/Stefan/Downloads/thinginisnasding/BookStore/bin/Debug/netcoreapp2.0/BookStore.runtimeconfig.dev.json
-C:/Users/Stefan/Downloads/thinginisnasding/BookStore/bin/Debug/netcoreapp2.0/BookStore.dll
-C:/Users/Stefan/Downloads/thinginisnasding/BookStore/bin/Debug/netcoreapp2.0/BookStore.pdb
-C:/Users/Stefan/Downloads/thinginisnasding/BookStore/obj/Debug/netcoreapp2.0/BookStore.csproj.CoreCompileInputs.cache
-C:/Users/Stefan/Downloads/thinginisnasding/BookStore/obj/Debug/netcoreapp2.0/BookStore.AssemblyInfoInputs.cache
-C:/Users/Stefan/Downloads/thinginisnasding/BookStore/obj/Debug/netcoreapp2.0/BookStore.AssemblyInfo.cs
-C:/Users/Stefan/Downloads/thinginisnasding/BookStore/obj/Debug/netcoreapp2.0/BookStore.dll
-C:/Users/Stefan/Downloads/thinginisnasding/BookStore/obj/Debug/netcoreapp2.0/BookStore.pdb
 /Users/sindrisnaefellskristinsson/Desktop/4.0/obj/Debug/netcoreapp2.0/BookStore.csproj.CoreCompileInputs.cache
 /Users/sindrisnaefellskristinsson/Desktop/4.0/obj/Debug/netcoreapp2.0/BookStore.AssemblyInfoInputs.cache
 /Users/sindrisnaefellskristinsson/Desktop/4.0/obj/Debug/netcoreapp2.0/BookStore.AssemblyInfo.cs
@@ -28,3 +18,13 @@ C:/Users/Stefan/Downloads/thinginisnasding/BookStore/obj/Debug/netcoreapp2.0/Boo
 /Users/sindrisnaefellskristinsson/Desktop/4.0/bin/Debug/netcoreapp2.0/BookStore.runtimeconfig.dev.json
 /Users/sindrisnaefellskristinsson/Desktop/4.0/bin/Debug/netcoreapp2.0/BookStore.dll
 /Users/sindrisnaefellskristinsson/Desktop/4.0/bin/Debug/netcoreapp2.0/BookStore.pdb
+C:\Users\Stefan\Downloads\thinginisnasding\BookStore\bin\Debug\netcoreapp2.0\BookStore.deps.json
+C:\Users\Stefan\Downloads\thinginisnasding\BookStore\bin\Debug\netcoreapp2.0\BookStore.runtimeconfig.json
+C:\Users\Stefan\Downloads\thinginisnasding\BookStore\bin\Debug\netcoreapp2.0\BookStore.runtimeconfig.dev.json
+C:\Users\Stefan\Downloads\thinginisnasding\BookStore\bin\Debug\netcoreapp2.0\BookStore.dll
+C:\Users\Stefan\Downloads\thinginisnasding\BookStore\bin\Debug\netcoreapp2.0\BookStore.pdb
+C:\Users\Stefan\Downloads\thinginisnasding\BookStore\obj\Debug\netcoreapp2.0\BookStore.csproj.CoreCompileInputs.cache
+C:\Users\Stefan\Downloads\thinginisnasding\BookStore\obj\Debug\netcoreapp2.0\BookStore.AssemblyInfoInputs.cache
+C:\Users\Stefan\Downloads\thinginisnasding\BookStore\obj\Debug\netcoreapp2.0\BookStore.AssemblyInfo.cs
+C:\Users\Stefan\Downloads\thinginisnasding\BookStore\obj\Debug\netcoreapp2.0\BookStore.dll
+C:\Users\Stefan\Downloads\thinginisnasding\BookStore\obj\Debug\netcoreapp2.0\BookStore.pdb

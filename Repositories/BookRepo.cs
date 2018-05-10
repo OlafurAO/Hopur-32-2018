@@ -64,7 +64,8 @@ namespace BookStore.Repositories
         {
             var books = (from a in _db.Books
                         orderby a.Rating descending
-                        join auth in _db.Authors on a.AuthorID equals auth.ID
+                        join auth in _db.Authors on a.AuthorID equals auth.ID 
+                        join cat in _db.Categories on a.Category equals cat.Name
                         select new BookListViewModel
                         {
                             ID = a.ID,
