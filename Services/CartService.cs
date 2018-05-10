@@ -7,13 +7,16 @@ using BookStore.Models.ViewModels;
 using BookStore.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
+//https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
+
 namespace BookStore.Services
 {
     public class CartService
     {
         DataContext _cartDb;
+
         public int CartID  { get; set; }
-        public string ID  { get; set; }
+        public string ID;
         public CartService()
         {
             _cartDb = new DataContext();
@@ -34,10 +37,9 @@ namespace BookStore.Services
                     CartID = ID,
                     Quantity = 1,
                 };
-                _cartDb.Carts.Add(item);
-            }
-
-            _cartDb.SaveChanges();
+                _cartDb.AddRange(item);
+                _cartDb.SaveChanges();
+            }   
         }
 
         public List<CartListViewModel> GetAllItems()

@@ -30,8 +30,5 @@ namespace BookStore.Services
                           select a).ToList();
             return orders;
         }
-
-       
-
     }
 }  

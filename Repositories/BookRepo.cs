@@ -88,7 +88,7 @@ namespace BookStore.Repositories
             _db.Books
             .Where(x => x.ID.Equals(ID))
             .ToList()
-            .ForEach(x => x.Rating = Rating);
+            .ForEach(x => x.Rating += (Rating - x.Rating) * 5/(x.CopiesSold + 1));
 
             _db.SaveChanges();
         }

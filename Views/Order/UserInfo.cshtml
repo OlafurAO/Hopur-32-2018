@@ -28,16 +28,20 @@
             @Html.TextBox("City", null, new {required="required", style="height:27px;border-radius:4px;"}) <br>
 
             Country:<br>
-            <select>
-                <option value="UnitedStates">United States</option>
+            <select name="Country">
+                <option value="">Select Country</option>
+                <option value="United States">United States</option>
                 <option value="Iceland">Iceland</option>
-                <option value="UnitedKingdom"> United Kingdom</option>
+                <option value="United Kingdom"> United Kingdom</option>
                 <option value="Sweden">Sweden</option>
             </select> <br>
+
+            
+            
            @* @Html.TextBox("Country", null, new {required="required", style="height:27px;border-radius:4px;"}) <br> *@
 
             Zip Code:<br>
-            @Html.TextBox("ZipCode", null, new {required="required", style="height:27px;border-radius:4px;"})<br>
+            @Html.TextBox("ZipCode", null, new {required="required", style="lheight:27px;border-radius:4px;"})<br>
 
             <input type="submit" value="Confirm Information" />
         </form>
