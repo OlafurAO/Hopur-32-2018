@@ -24,10 +24,10 @@ namespace BookStore.Repositories
 
             return categories;
         }
-        public List<BookListViewModel> FindBooksByCategory(int? id)
+        public List<BookListViewModel> FindBooksByCategory(string id)
         {
             var books = (from a in _db.Books 
-                         join b in _db.Categories on id equals b.ID
+                         join b in _db.Categories on id equals b.Name
                          where a.Category == b.Name
                          select new BookListViewModel
                          {

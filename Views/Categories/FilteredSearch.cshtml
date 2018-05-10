@@ -9,7 +9,7 @@
         @foreach(var b in @Model)
         {
               <tr>
-                <td>@Html.ActionLink(b.Name, "Details", "Categories", new { id = b.Id })</td> 
+                <td>@Html.ActionLink(b.Name, "Details", "Categories", new { id = b.Name })</td> 
               </tr>
         }
       </ul>
