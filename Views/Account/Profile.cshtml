@@ -1,0 +1,14 @@
+@model BookStore.Models.ViewModels.ProfileViewModel
+
+<br>
+<fieldset>
+<legend>Personal Information</legend>
+
+
+<h4> First Name: @Model.FirstName</h2>
+<h4> Last Name: @Model.LastName</h4>
+<h4> Age: @Model.Age</h4>
+<h4> Favorite Book : @Model.FavoriteBook</h4>
+
+@Html.ActionLink("Edit Profile", "MyProfile", "Account", null , new { @class = "btn btn-info" }) 
+</fieldset>

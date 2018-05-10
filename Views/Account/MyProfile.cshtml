@@ -1,0 +1,26 @@
+@model BookStore.Models.ViewModels.ProfileViewModel
+
+<br>
+<fieldset>
+<legend>Edit Information</legend>
+<form asp-action="MyProfile" asp-controller="Account" class="form-horizontal" method="POST">
+    <div class="form-group">
+        <input type="text" autofocus="autofocus" class="form-control" asp-for="FirstName" placeholder="Enter your first name.." value="@Model.FirstName" />
+    </div>
+
+     <div class="form-group">
+        <input type="text" class="form-control" asp-for="LastName" placeholder="Enter your last name.." value="@Model.LastName" />
+    </div>
+
+     <div class="form-group">
+        <input type="text" class="form-control" asp-for="FavoriteBook" placeholder="Enter your favorite book.." value="@Model.FavoriteBook" />
+    </div>
+
+     <div class="form-group">
+        <input type="text" class="form-control" asp-for="Age" placeholder="Enter your age.." value="@Model.Age" />
+    </div>
+    <div class="form-group">
+       <input type="submit" class="btn btn-default" value="Update profile!">
+    </div>
+</form>
+</fieldset>
