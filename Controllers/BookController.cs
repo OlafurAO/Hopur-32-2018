@@ -20,11 +20,16 @@ namespace BookStore.Controllers
         }
 
         [HttpGet("/Book/Index")]
-        public IActionResult Index()
-        {
-            var books = _bookService.GetAllBooks();
-
+        public IActionResult Index(string SortBy){
+        ViewBag.SortNameParameter = string.IsNullOrEmpty(SortBy) ? "Name desc" : "";
+            
+        if(SortBy == "Name desc"){
+            var books = (from  book in _bookService.GetAllBooks() orderby book.Name descending select book).ToList();
             return View(books);
+            }else {
+                 var bookss = (from  book in _bookService.GetAllBooks() orderby book.Name ascending select book).ToList(); 
+                 return View(bookss);
+            }
         }
 
         [HttpGet("/Book/Details")]

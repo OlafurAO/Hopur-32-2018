@@ -1,7 +1,27 @@
-@model List<BookStore.Models.ViewModels.CategoryListViewModel>
+@model List<BookStore.Models.ViewModels.BookListViewModel>
 
-
-@foreach(var book in @Model)
-{
-    <h1>@book.Id</h1>
+@{
+    var bookList = @Model;
 }
+
+<div>
+    <table style="width:100%">
+        <tr>
+            <th>Name</th>
+            <th>Author</th> 
+            <th>Category</th>
+            <th>Rating</th>
+            <th>Price</th>
+        </tr>
+
+        @foreach(var book in bookList)
+        {      
+            <tr>
+                <td>@Html.ActionLink(book.Name, "Details", "Book", new { id = book.ID })</td> 
+                <td>@Html.ActionLink(book.Author, "Details", "Author", new { id = book.AuthorID })</td> 
+                <td>@book.Category</td> <td>@book.Rating</td> <td>$@book.Price</td>
+            </tr>           
+        }
+    </table>
+</div>
+

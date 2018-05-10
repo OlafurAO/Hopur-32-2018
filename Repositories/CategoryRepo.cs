@@ -26,11 +26,12 @@ namespace BookStore.Repositories
         }
         public List<BookListViewModel> FindBooksByCategory(int? id)
         {
-            var books = (from a in _db.Books join b in _db.Categories
-                        on a.Category equals  b.Name
+            var books = (from a in _db.Books 
+                         join b in _db.Categories on id equals b.ID
+                         where a.Category == b.Name
                          select new BookListViewModel
                          {
-                               ID = a.ID,
+                              ID = a.ID,
                               Name = a.Name, 
                               Author = a.Author,
                               AuthorID = a.AuthorID,

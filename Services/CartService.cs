@@ -21,7 +21,7 @@ namespace BookStore.Services
         public void AddToCart(BookListViewModel book)
         {
             var item = _cartDb.Carts.SingleOrDefault(
-                                     c => c.ID == CartID
+                                     c => c.CartID == ID
                                      && c.BookID == book.ID);
 
             if(item == null)
@@ -34,11 +34,6 @@ namespace BookStore.Services
                     Quantity = 1,
                 };
                 _cartDb.Carts.Add(item);
-            }
-
-            else
-            {
-                item.Quantity++;
             }
 
             _cartDb.SaveChanges();

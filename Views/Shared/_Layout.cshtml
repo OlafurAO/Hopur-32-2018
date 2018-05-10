@@ -29,6 +29,15 @@
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">BookStore</a>
             </div>
             
+  @*  <div class="Categories home" style="left:10px; top:150px; position:fixed;border-Style:solid; border:3px;display:border">
+                <ul class="CategoriesHome">
+                    <li><a asp-area="" asp-controller="Book" asp-action="FilteredSearch" id=1 >Horror</a></li>
+                    <li><a asp-area="" asp-controller="Book" asp-action="Index">Fantasy</a></li>
+                    <li><a asp-area="" asp-controller="Book" asp-action="Index">Textbooks</a></li>
+                    <li><a asp-area="" asp-controller="Book" asp-action="Index">Audiobooks</a></li>
+                    <li><a asp-area="" asp-controller="Book" asp-action="TopRated">Top Rated</a></li>
+                </ul>
+                </div>*@
             @*NAVIGATION BAR **************************************@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
@@ -37,11 +46,12 @@
                     <li><a asp-area="" asp-controller="Book" asp-action="Index">Textbooks</a></li>
                     <li><a asp-area="" asp-controller="Book" asp-action="Index">Audiobooks</a></li>
                     <li><a asp-area="" asp-controller="Book" asp-action="TopRated">Top Rated</a></li>
+                    <li><a asp-area="" asp-controller="Book" asp-action="FilteredSearch">Categories</a></li>
                 </ul>
 
                 @using(Html.BeginForm("Search", "Book", FormMethod.Get))
                 {
-                    <div style="position:absolute;top:25%;right:35%">
+                    <div style="position:absolute;top:25%;right:25%">
                         @Html.TextBox("SearchString", null, new { style="height:27px;border-radius:4px;"}) <input type="submit" value="Search" style="background-color: #4e4e4e;
                                                                                                                                                         border: none;
                                                                                                                                                         color: white;

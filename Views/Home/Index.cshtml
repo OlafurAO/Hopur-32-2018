@@ -24,7 +24,7 @@
     <h2>Fantasy Classics</h2>
     <table style="width:100%">
         <tr>
-            <th>Name</th>
+            <th>@Html.ActionLink("Name", "Sort", new { SortBy = ViewBag.SortNameParameter}) </th>;
             <th>Author</th> 
             <th>Category</th>
             <th>Rating</th>
@@ -41,3 +41,4 @@
         }
     </table>
 </div>
+  </div>
