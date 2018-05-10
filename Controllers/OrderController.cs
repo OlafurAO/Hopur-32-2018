@@ -2,6 +2,7 @@ using System;
 using BookStore.Models;
 using BookStore.Services;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Controllers
@@ -11,11 +12,13 @@ namespace BookStore.Controllers
     {
         CartService _cart;
         OrderService _order;
+        OrderHistoryService _orderHistory;
 
         public OrderController()
         {
             _cart = new CartService();
             _order = new OrderService();
+            _orderHistory = new OrderHistoryService();
         }
 
         [HttpGet("/Order/UserInfo")]
@@ -27,12 +30,12 @@ namespace BookStore.Controllers
 
         [HttpGet("/Order/Review")]
         public IActionResult Review(string FirstName, string LastName, string ShippingAddress, string BillingAddress, 
-        string StreetName, string HouseNumber, string City, string Country, string ZipCode)
+        string City, string Country, string ZipCode)
         {
             var cartContents = _cart.GetAllItems();
 
             var order = _order.SaveOrder(_cart, cartContents, FirstName, LastName, ShippingAddress, 
-                                        BillingAddress, StreetName, HouseNumber, City, Country, ZipCode);
+                                        BillingAddress, City, Country, ZipCode);
 
             return View(order);
         }
@@ -43,8 +46,18 @@ namespace BookStore.Controllers
             //send email
 
             _order.ConfirmOrder(order);
+            //_orderHistory.SaveOrder(order);
             _cart.ClearCart();
+            
             return View();
+        }
+
+        [HttpGet("/Order/History")]
+        public IActionResult GetOrderHistory()
+        {
+            var orders = _orderHistory.GetOrderHistory();
+
+            return View(orders);
         }
     }
 }

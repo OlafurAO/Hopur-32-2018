@@ -2,6 +2,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using BookStore.Models;
 using BookStore.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -40,8 +41,6 @@ namespace BookStore.Controllers
 
             if(result.Succeeded)
             {
-                //User registration successful
-                //Add Concatenated first and last name as fullName in claims
                 await _userManager.AddClaimAsync(user, new Claim("Name", $"{model.FirstName} {model.LastName}"));
                 await _signInManager.SignInAsync(user, false);
 
@@ -88,5 +87,51 @@ namespace BookStore.Controllers
         {
             return View();
         }
+        
+        [Authorize]
+        public async Task<IActionResult> MyProfile()
+        {
+            //Get user data
+            var user = await _userManager.GetUserAsync(User);
+
+            return View(new ProfileViewModel {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                FavoriteBook = user.FavoriteBook,
+                Age = user.Age
+            });
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> MyProfile(ProfileViewModel model)
+        {
+            var user = await _userManager.GetUserAsync(User);
+
+            //Update properties
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+            user.Age = model.Age;
+            user.FavoriteBook = model.FavoriteBook;
+         
+            await _userManager.UpdateAsync(user);
+
+            return RedirectToAction("Profile", "Account");
+        }
+        [Authorize]
+        public async Task<IActionResult> Profile()
+        {
+            //Get user data
+            var user = await _userManager.GetUserAsync(User);
+
+            return View(new ProfileViewModel {
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                FavoriteBook = user.FavoriteBook,
+                Age = user.Age
+            });
+          
+        }
+   
     }
 }

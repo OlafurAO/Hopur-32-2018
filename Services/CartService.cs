@@ -5,6 +5,7 @@ using BookStore.Data;
 using BookStore.Data.EntityModels;
 using BookStore.Models.ViewModels;
 using BookStore.Repositories;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BookStore.Services
 {
@@ -17,11 +18,11 @@ namespace BookStore.Services
         {
             _cartDb = new DataContext();
         }
-
+        
         public void AddToCart(BookListViewModel book)
         {
             var item = _cartDb.Carts.SingleOrDefault(
-                                     c => c.CartID == ID
+                                     c => c.ID == CartID
                                      && c.BookID == book.ID);
 
             if(item == null)
@@ -66,14 +67,14 @@ namespace BookStore.Services
 
         public void ClearCart()
         {
-            //var remove = _cartDb.Carts.Select(c => c.CartID == ID);
             var remove = (from a in _cartDb.Carts
                           where a.CartID == ID
                           select a).ToList();
 
             if(remove != null)
             {
-                _cartDb.Carts.RemoveRange(remove);
+                _cartDb.RemoveRange(remove);
+                _cartDb.SaveChanges();
             }
 
             foreach(var a in remove)

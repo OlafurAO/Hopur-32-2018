@@ -27,14 +27,23 @@ namespace BookStore.Repositories
             return authors;
         }
 
-        public List<AuthorListViewModel> FindBooksByAuthor(int? ID)
+        public List<BookListViewModel> FindBooksByAuthor(int? ID)
         {
-            var books = (from a in _db.Authors
-                        where a.ID == ID
-                         select new AuthorListViewModel
+            var books = (from b in _db.Books
+                         join a in _db.Authors on ID equals a.ID
+                         where b.AuthorID == ID
+                         select new BookListViewModel
                          {
-                             ID = a.ID,
-                             Name = a.Name
+                            ID = b.ID,
+                            Name = b.Name,
+                            Author = b.Author,
+                            AuthorID = b.AuthorID,
+                            Category = b.Category,
+                            YearPublished = b.YearPublished,
+                            Price = b.Price,
+                            Rating = b.Rating,
+                            CopiesAvailable = b.CopiesAvailable,
+                            CopiesSold = b.CopiesSold
                          }).ToList();
 
             return books;

@@ -24,4 +24,7 @@
         @Html.ActionLink("Add to Cart", "AddToCart", "Cart", new { id = book.ID }, new { @class = "btn btn-info" })    
     }
 
+    @Html.ActionLink("Comments", "GetComments", "Book", new { id = book.ID })   
+    @Html.ActionLink("Rate", "Rate", "Book", new { id = book.ID })
+
 </div>

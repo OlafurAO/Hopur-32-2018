@@ -1,0 +1,20 @@
+@model Int32
+
+@{
+    var ID = @Model;
+}
+
+@using(Html.BeginForm("AddComment", "Book", FormMethod.Get))
+{
+    <form>
+        Name: <br>    
+        @Html.TextBox("Name", null, new {required="required", style="height:27px;border-radius:4px;"})<br>
+
+        Comment:<br>
+        @Html.TextBox("CommentBody", null, new {required="required", style="height:27px;border-radius:4px;"})<br>
+
+        @Html.Hidden("id", ID)
+
+        <input type="submit" value="Submit Comment" />
+    </form>
+}

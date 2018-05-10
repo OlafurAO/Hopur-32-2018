@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using BookStore.Data;
 using BookStore.Data.EntityModels;
 using BookStore.Models;
@@ -18,14 +19,12 @@ namespace BookStore.Services
         }
 
         public Order SaveOrder(CartService cs, List<CartListViewModel> cart, string firstName, string lastName, string shippingAddress, string billingAddress, 
-        string streetName, string houseNumber, string city, string country, string zipCode)
+        string city, string country, string zipCode)
         {
-            Console.WriteLine("working");
-
             var order = new Order{
                         FirstName = firstName,
                         LastName = lastName,
-                        Address = shippingAddress,
+                        ShippingAddress = shippingAddress,
                         BillingAddress = billingAddress,
                         City = city,
                         Total = cs.GetTotalCartPrice(),
@@ -40,14 +39,21 @@ namespace BookStore.Services
 
         public void ConfirmOrder(Order order)
         {
-            _orderDb.Orders.Add(order);
+            /*  
+            if(order != null)
+            {
+                order.Cart.All(x => { x.Book.CopiesAvailable--; return true; });
+                order.Cart.All(x => { x.Book.CopiesSold++; return true; });
+            }
+
+            else
+            {
+                Console.WriteLine("empty");
+            }
+             */
+            
+            _orderDb.Add(order);
             _orderDb.SaveChanges();
         }
-
-       /* public Order GetOrder()
-        {
-            
-        }*/
-
     }
 }  

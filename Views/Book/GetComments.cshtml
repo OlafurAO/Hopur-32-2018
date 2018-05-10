@@ -1,0 +1,24 @@
+@model List<BookStore.Models.ViewModels.CommentListViewModel>
+
+
+@{
+    var commentList = @Model;
+    var bookID = commentList.First().BookID;
+}
+
+@Html.ActionLink("Add Comment", "CommentPage", "Book", new { id = bookID })
+
+@if(commentList.Count > 0)
+{
+    @foreach(var a in @Model)
+    {
+        <h3>@a.Name</h3>
+        <h4>@a.CommentBody</h4>
+        <p></p>
+    }
+}
+
+else
+{
+    <h2> No comments so far!</h2>
+}

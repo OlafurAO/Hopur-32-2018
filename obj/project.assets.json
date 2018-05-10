@@ -12538,23 +12538,40 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\Stefan\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+=======
+    "/Users/sindrisnaefellskristinsson/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+>>>>>>> 52a9c78c89bccf76c2995a9eb2c4c6392f261a90
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\Stefan\\Downloads\\thinginisnasding\\BookStore\\BookStore.csproj",
       "projectName": "BookStore",
       "projectPath": "C:\\Users\\Stefan\\Downloads\\thinginisnasding\\BookStore\\BookStore.csproj",
       "packagesPath": "C:\\Users\\Stefan\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Stefan\\Downloads\\thinginisnasding\\BookStore\\obj\\",
+=======
+      "projectUniqueName": "/Users/sindrisnaefellskristinsson/Desktop/4.0/BookStore.csproj",
+      "projectName": "BookStore",
+      "projectPath": "/Users/sindrisnaefellskristinsson/Desktop/4.0/BookStore.csproj",
+      "packagesPath": "/Users/sindrisnaefellskristinsson/.nuget/packages/",
+      "outputPath": "/Users/sindrisnaefellskristinsson/Desktop/4.0/obj/",
+>>>>>>> 52a9c78c89bccf76c2995a9eb2c4c6392f261a90
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\Stefan\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+        "/Users/sindrisnaefellskristinsson/.nuget/NuGet/NuGet.Config"
+>>>>>>> 52a9c78c89bccf76c2995a9eb2c4c6392f261a90
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"

@@ -21,15 +21,12 @@ namespace BookStore.Controllers
             _authorService = new AuthorService();
         }
 
-        [HttpPost("/Author/Details")]
+        [HttpGet("/Author/Details")]
         public IActionResult Details(int? ID)
         {
-            Console.WriteLine(ID);
             var books = _authorService.FindBooksByAuthor(ID);
 
             return View(books);
-        }
-
-        
+        }        
     }
 }
