@@ -34,5 +34,15 @@
 
     <p>Total: $@order.Total</p>
 
-    @Html.ActionLink("Confirm", "ConfirmOrder", "Order", new { order })
+    @Html.ActionLink("Confirm", "ConfirmOrder", "Order", new {
+                                                              ID = order.ID,
+                                                              BillingAddress = order.BillingAddress,
+                                                              City = order.City,
+                                                              Country = order.Country,
+                                                              FirstName = order.FirstName,
+                                                              LastName = order.LastName,
+                                                              OrderDate = order.OrderDate,
+                                                              ShippingAddress = order.ShippingAddress,
+                                                              Total = order.Total,
+                                                              ZipCode = order.ZipCode})
 </div>

@@ -62,8 +62,6 @@ namespace BookStore.Controllers
         {
             var bookList = _bookService.GetTopRated();
 
-            
-            
             return View(bookList);
         }
 
@@ -88,11 +86,21 @@ namespace BookStore.Controllers
             return View(ID);
         }
 
+        [Authorize]
         [HttpGet("/Book/Rate")]
-        public IActionResult Rate(int? ID)
+        public IActionResult Rate(int? ID, double Rating)
         {
-            _bookService.AddRating(ID);
-            return View();
+            Console.WriteLine(Rating);
+            if(Rating < 0 || Rating > 5)
+            {
+                return View("~/Views/Book/RateError.cshtml");
+            }
+
+            else
+            {
+                _bookService.AddRating(ID, Rating);
+                return View(ID);
+            } 
         }
 
         //[Authorize]

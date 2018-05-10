@@ -12,10 +12,12 @@ namespace BookStore.Services
     public class OrderService
     {
         DataContext _orderDb;
+        BookService _bService;
 
         public OrderService()
         {
             _orderDb = new DataContext();
+            _bService = new BookService();
         }
 
         public Order SaveOrder(CartService cs, List<CartListViewModel> cart, string firstName, string lastName, string shippingAddress, string billingAddress, 
@@ -39,18 +41,7 @@ namespace BookStore.Services
 
         public void ConfirmOrder(Order order)
         {
-            /*  
-            if(order != null)
-            {
-                order.Cart.All(x => { x.Book.CopiesAvailable--; return true; });
-                order.Cart.All(x => { x.Book.CopiesSold++; return true; });
-            }
-
-            else
-            {
-                Console.WriteLine("empty");
-            }
-             */
+            _bService.ChangeCopies(order.Cart);
             
             _orderDb.Add(order);
             _orderDb.SaveChanges();

@@ -34,6 +34,11 @@ namespace BookStore.Controllers
         {
             var cartContents = _cart.GetAllItems();
 
+            if(cartContents == null)
+            {
+                Console.WriteLine("empty cart");
+            }
+
             var order = _order.SaveOrder(_cart, cartContents, FirstName, LastName, ShippingAddress, 
                                         BillingAddress, City, Country, ZipCode);
 
@@ -44,9 +49,8 @@ namespace BookStore.Controllers
         public IActionResult ConfirmOrder(Order order)
         {
             //send email
-
             _order.ConfirmOrder(order);
-            //_orderHistory.SaveOrder(order);
+            _orderHistory.SaveOrder(order);
             _cart.ClearCart();
             
             return View();

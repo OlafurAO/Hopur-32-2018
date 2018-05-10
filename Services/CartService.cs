@@ -4,23 +4,29 @@ using System.Linq;
 using BookStore.Data;
 using BookStore.Data.EntityModels;
 using BookStore.Models.ViewModels;
-using BookStore.Repositories;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+
+//https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
 
 namespace BookStore.Services
 {
     public class CartService
     {
         DataContext _cartDb;
+
         public int CartID  { get; set; }
-        public string ID  { get; set; }
+        public string ID;
         public CartService()
         {
             _cartDb = new DataContext();
+            //string userid = HttpContext.User.Identity.Name;
+            ID = System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString();
+            
         }
         
         public void AddToCart(BookListViewModel book)
         {
+            Console.WriteLine(ID);
             var item = _cartDb.Carts.SingleOrDefault(
                                      c => c.ID == CartID
                                      && c.BookID == book.ID);
@@ -34,18 +40,19 @@ namespace BookStore.Services
                     CartID = ID,
                     Quantity = 1,
                 };
-                _cartDb.Carts.Add(item);
-            }
-
-            _cartDb.SaveChanges();
+                _cartDb.AddRange(item);
+                _cartDb.SaveChanges();
+            }   
         }
 
         public List<CartListViewModel> GetAllItems()
         {
             var items = (from a in _cartDb.Carts
+                        where a.CartID == ID
                         select new CartListViewModel
                         {
                             ID = a.ID,
+                            CartID = ID,
                             Book = a.Book,
                             Quantity = a.Quantity
                         }).ToList();

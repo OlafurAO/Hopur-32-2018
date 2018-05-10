@@ -25,6 +25,17 @@
     }
 
     @Html.ActionLink("Comments", "GetComments", "Book", new { id = book.ID })   
-    @Html.ActionLink("Rate", "Rate", "Book", new { id = book.ID })
+
+    @using(Html.BeginForm("Rate", "Book", FormMethod.Get))
+    {
+        <form>
+            Rate this book on a scale of 1-5: <br>    
+            @Html.TextBox("Rating", null, new {required="required", style="height:27px;border-radius:4px;"})<br>
+
+            @Html.Hidden("id", book.ID)
+
+            <input type="submit" value="Submit Rating" />
+        </form>
+    }
 
 </div>
