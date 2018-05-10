@@ -20,7 +20,8 @@ namespace BookStore.Services
 
         public void SaveOrder(Order order)
         {
-            _orderHistoryDb.Add(new OrderHistory{Order = order});
+            _orderHistoryDb.AddRange( new OrderHistory { Order = order });
+                
             _orderHistoryDb.SaveChanges();
         }
 

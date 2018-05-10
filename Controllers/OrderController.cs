@@ -50,7 +50,7 @@ namespace BookStore.Controllers
         {
             //send email
             _order.ConfirmOrder(order);
-            //_orderHistory.SaveOrder(order);
+            _orderHistory.SaveOrder(order);
             _cart.ClearCart();
             
             return View();
