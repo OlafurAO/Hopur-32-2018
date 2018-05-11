@@ -1,8 +1,0 @@
-@model List<BookStore.Models.OrderHistory>
-
-<ul style="list-style: none"></ul>
-    @foreach(var order in @Model)
-    {
-        <li>><td>@item.Book.Name</td> <td>@item.Quantity</td> <td>$@item.Book.Price</td></tr></li>
-    }
-</ul>

@@ -88,15 +88,13 @@ namespace BookStore.Services
             {
                 Console.WriteLine(a.BookID);
             }
-
-            
         }
 
         public double GetTotalCartPrice()
         {
             double total = 0;
 
-            foreach(var price in _cartDb.Carts)
+            foreach(var price in _cartDb.Carts.Where(x => x.CartID == ID))
             {
                 total += price.Book.Price;
             }
@@ -108,12 +106,17 @@ namespace BookStore.Services
         {
             int total = 0;
 
-            foreach(var item in _cartDb.Carts)
+            foreach(var item in _cartDb.Carts.Where(x => x.CartID == ID))
             {
                 total++;
             }
 
             return total;
+        }
+
+        public void Save()
+        {
+            _cartDb.SaveChanges();
         }
     }
 }  

@@ -4,16 +4,19 @@ using BookStore.Models.ViewModels;
 using BookStore.Data;
 using BookStore.Data.EntityModels;
 using System;
+using BookStore.Services;
 
 namespace BookStore.Repositories
 {
     public class BookRepo
     {
         private DataContext _db;
+        private CartService _cs;
 
         public BookRepo()
         {
             _db = new DataContext();
+            _cs = new CartService();
         }
 
         public List<BookListViewModel> GetAllBooks()
@@ -93,28 +96,26 @@ namespace BookStore.Repositories
             _db.SaveChanges();
         }
 
-        public void ChangeCopies(List<CartListViewModel> order)
-        {
-            if(order != null)
-            {
-                foreach(var o in order)
-                {
-                    _db.Books
-                    .Where(x => x.ID.Equals(o.Book.ID))
-                    .ToList()
-                    .ForEach(x => x.CopiesAvailable--);
+        public void ChangeCopies()
+        {           
+            var cartItems = (from a in _db.Carts
+                             where _cs.ID == a.CartID
+                             select a.BookID).ToList();
 
-                    _db.Books
-                    .Where(x => x.ID.Equals(o.Book.ID))
-                    .ToList()
-                    .ForEach(x => x.CopiesSold++);
-                }
-            } 
-
-            else
+            foreach(var item in cartItems)
             {
-                Console.WriteLine("empty");
-            }           
+                Console.WriteLine(item);
+                _db.Books
+                .Where(x => x.ID.Equals(item))
+                .ToList()
+                .ForEach(x => x.CopiesAvailable -= 1);
+
+                _db.Books
+                .Where(x => x.ID.Equals(item))
+                .ToList()
+                .ForEach(x => x.CopiesSold += 1);
+            }
+            _db.SaveChanges();
         }
     }
 }

@@ -42,9 +42,9 @@ namespace BookStore.Services
             _bookRepo.AddRating(ID, Rating);
         }
 
-        public void ChangeCopies(List<CartListViewModel> cart)
+        public void ChangeCopies()
         {
-            _bookRepo.ChangeCopies(cart);
+            _bookRepo.ChangeCopies();
         }
     }
 }  

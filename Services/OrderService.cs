@@ -23,6 +23,8 @@ namespace BookStore.Services
         public Order SaveOrder(CartService cs, List<CartListViewModel> cart, string firstName, string lastName, string shippingAddress, string billingAddress, 
         string city, string country, string zipCode)
         {
+            //Not empty
+
             var order = new Order{
                         FirstName = firstName,
                         LastName = lastName,
@@ -39,12 +41,40 @@ namespace BookStore.Services
             return order;
         }
 
-        public void ConfirmOrder(Order order)
+        public void ConfirmOrder(Order orders)
         {
-            _bService.ChangeCopies(order.Cart);
+            _orderDb.Orders.Add(orders);
+            _bService.ChangeCopies();
+            _orderDb.SaveChanges();            
+        }
+
+        public List<Order> GetOrderHistory()
+        {            
+            var orders = (from a in _orderDb.Orders
+                          select new Order
+                          {
+                                FirstName = a.FirstName,
+                                LastName = a.LastName,
+                                ShippingAddress = a.ShippingAddress,
+                                BillingAddress = a.BillingAddress,
+                                City = a.City,
+                                Total = a.Total,
+                                Country = a.Country,
+                                ZipCode = a.ZipCode,
+                                OrderDate = a.OrderDate,
+                                Cart = a.Cart
+                          }).ToList();
+
+            foreach(var a in orders)
+            {
+                if(a.Cart == null)
+                {
+                    Console.WriteLine(a.BillingAddress);
+                }
+            }
+
+            return orders;
             
-            _orderDb.Add(order);
-            _orderDb.SaveChanges();
         }
     }
 }  

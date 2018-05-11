@@ -36,7 +36,7 @@ namespace BookStore.Controllers
 
             if(cartContents == null)
             {
-                Console.WriteLine("empty cart");
+                Console.WriteLine("empty shit fuck");
             }
 
             var order = _order.SaveOrder(_cart, cartContents, FirstName, LastName, ShippingAddress, 
@@ -48,9 +48,12 @@ namespace BookStore.Controllers
         [HttpGet("/Order/ConfirmOrder")]
         public IActionResult ConfirmOrder(Order order)
         {
-            //send email
+            order.Cart = _cart.GetAllItems();
+            _cart.Save();
+
+            
+            
             _order.ConfirmOrder(order);
-            _orderHistory.SaveOrder(order);
             _cart.ClearCart();
             
             return View();
@@ -59,9 +62,10 @@ namespace BookStore.Controllers
         [HttpGet("/Order/History")]
         public IActionResult GetOrderHistory()
         {
-            var orders = _orderHistory.GetOrderHistory();
+            //var orders = _order.GetOrderHistory();
 
-            return View(orders);
+            //return View(orders);
+            return View();
         }
     }
 }
