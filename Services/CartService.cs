@@ -6,8 +6,6 @@ using BookStore.Data.EntityModels;
 using BookStore.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 
-//https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/mvc-music-store/mvc-music-store-part-8
-
 namespace BookStore.Services
 {
     public class CartService
