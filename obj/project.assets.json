@@ -12544,11 +12544,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ólafur\\Desktop\\test\\BookStore.csproj",
+      "projectUniqueName": "C:\\Users\\Ólafur\\Desktop\\Bleh\\BookStore.csproj",
       "projectName": "BookStore",
-      "projectPath": "C:\\Users\\Ólafur\\Desktop\\test\\BookStore.csproj",
+      "projectPath": "C:\\Users\\Ólafur\\Desktop\\Bleh\\BookStore.csproj",
       "packagesPath": "C:\\Users\\Ólafur\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ólafur\\Desktop\\test\\obj\\",
+      "outputPath": "C:\\Users\\Ólafur\\Desktop\\Bleh\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

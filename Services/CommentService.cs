@@ -9,12 +9,14 @@ namespace BookStore.Services
   public class CommentService
   {
         private CommentRepo _comments; 
-        public CommentService(){
-            _comments = new CommentRepo();
 
+        public CommentService()
+        {
+            _comments = new CommentRepo();
         }
         
-        public  List<CommentListViewModel> GetComments(int? ID){
+        public  List<CommentListViewModel> GetComments(int? ID)
+        {
             var comments = _comments.GetCommentsForBook(ID);
             return comments; 
         }

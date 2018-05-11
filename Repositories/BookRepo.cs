@@ -114,6 +114,7 @@ namespace BookStore.Repositories
                 .ToList()
                 .ForEach(x => x.CopiesSold += 1);
             }
+            
             _db.SaveChanges();
         }
     }

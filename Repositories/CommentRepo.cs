@@ -14,11 +14,6 @@ namespace BookStore.Repositories
         {
             _db = new DataContext();
         }
-
-        public void AddCommentToBook()
-        {
-
-        }
         
         public List<CommentListViewModel> GetCommentsForBook(int? ID)
         {
@@ -46,8 +41,5 @@ namespace BookStore.Repositories
             _db.Add(comment);
             _db.SaveChanges();
         }
-         
-
-        
     }
 }

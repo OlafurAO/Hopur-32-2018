@@ -22,7 +22,6 @@ namespace BookStore.Services
         public List<BookListViewModel> FindBooksByAuthor(int? ID)
         {
             var books = _authorRepo.FindBooksByAuthor(ID);
-
             return books;
         }
     }

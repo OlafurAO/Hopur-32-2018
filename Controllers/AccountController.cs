@@ -118,10 +118,10 @@ namespace BookStore.Controllers
 
             return RedirectToAction("Profile", "Account");
         }
+
         [Authorize]
         public async Task<IActionResult> Profile()
         {
-            //Get user data
             var user = await _userManager.GetUserAsync(User);
 
             return View(new ProfileViewModel {

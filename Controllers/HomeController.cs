@@ -23,7 +23,6 @@ namespace BookStore.Controllers
 
         public IActionResult Index()
         {
-            //var authors = _authorService.GetAllAuthors();
             var books = _bookService.GetAllBooks();
 
             return View(books);

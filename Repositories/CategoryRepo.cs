@@ -9,21 +9,24 @@ namespace BookStore.Repositories
     public class CategoryRepo
     {
         private DataContext _db;
+
         public CategoryRepo()
         {
             _db = new DataContext();
         }
+
         public List<CategoryListViewModel> GetAllCategories()
         {
            var categories = (from a in _db.Categories
-                         select new CategoryListViewModel
-                         {
-                             Id = a.ID,
-                             Name = a.Name
-                         }).ToList();
+                            select new CategoryListViewModel
+                            {
+                                Id = a.ID,
+                                Name = a.Name
+                            }).ToList();
 
             return categories;
         }
+
         public List<BookListViewModel> FindBooksByCategory(string id)
         {
             var books = (from a in _db.Books 
@@ -45,5 +48,5 @@ namespace BookStore.Repositories
 
             return books;
         }
-  }
+    }
 }

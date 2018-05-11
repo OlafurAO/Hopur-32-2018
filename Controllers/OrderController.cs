@@ -25,6 +25,7 @@ namespace BookStore.Controllers
         public IActionResult UserInfo(int? ID)
         {
             var cartContents = _cart.GetAllItems();
+
             return View(cartContents);
         }
 
@@ -45,8 +46,6 @@ namespace BookStore.Controllers
         {
             order.Cart = _cart.GetAllItems();
             _cart.Save();
-
-            
             
             _order.ConfirmOrder(order);
             _cart.ClearCart();

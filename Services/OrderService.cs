@@ -23,8 +23,6 @@ namespace BookStore.Services
         public Order SaveOrder(CartService cs, List<CartListViewModel> cart, string firstName, string lastName, string shippingAddress, string billingAddress, 
         string city, string country, string zipCode)
         {
-            //Not empty
-
             var order = new Order{
                         FirstName = firstName,
                         LastName = lastName,
@@ -65,8 +63,7 @@ namespace BookStore.Services
                                 Cart = a.Cart
                           }).ToList();
 
-            return orders;
-            
+            return orders;    
         }
     }
 }  

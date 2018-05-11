@@ -14,7 +14,7 @@ namespace BookStore.Controllers
     {
         private BookService _bookService;
         private CategoryService _categoryService;
-                public CategoriesController()
+        public CategoriesController()
         {
             _bookService = new BookService();
             _categoryService = new CategoryService();
@@ -23,15 +23,16 @@ namespace BookStore.Controllers
         [HttpGet("/Book/FilteredSearch")]
         public IActionResult FilteredSearch()
         {
-            var filterd = _categoryService.GetCategories();
-            return View(filterd);
+            var filtered = _categoryService.GetCategories();
+            return View(filtered);
         }
+
         [HttpGet("/Categories/Details")]
-        public IActionResult Details(string ID){
+        public IActionResult Details(string ID)
+        {
           var categories = _categoryService.Filter(ID);
+
           return View(categories);
-
         }    
-
     }
 }

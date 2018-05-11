@@ -22,15 +22,20 @@ namespace BookStore.Controllers
         }
 
         [HttpGet("/Book/Index")]
-        public IActionResult Index(string SortBy){
-        ViewBag.SortNameParameter = string.IsNullOrEmpty(SortBy) ? "Name desc" : "";
+        public IActionResult Index(string SortBy)
+        {
+            ViewBag.SortNameParameter = string.IsNullOrEmpty(SortBy) ? "Name desc" : "";
             
-        if(SortBy == "Name desc"){
-            var books = (from  book in _bookService.GetAllBooks() orderby book.Name descending select book).ToList();
-            return View(books);
-            }else {
-                 var bookss = (from  book in _bookService.GetAllBooks() orderby book.Name ascending select book).ToList(); 
-                 return View(bookss);
+            if(SortBy == "Name desc")
+            {
+                var books = (from  book in _bookService.GetAllBooks() orderby book.Name descending select book).ToList();
+                return View(books);
+            }
+
+            else 
+            {
+                var books = (from  book in _bookService.GetAllBooks() orderby book.Name ascending select book).ToList(); 
+                return View(books);
             }
         }
 
@@ -47,6 +52,7 @@ namespace BookStore.Controllers
         public IActionResult Search(string searchString)
         {
             var bookList = _bookService.SearchBooks(searchString);
+
             return View(bookList);
         }
 
@@ -62,6 +68,7 @@ namespace BookStore.Controllers
         public IActionResult GetComments(int? ID)
         {
             var comments = _commentService.GetComments(ID);
+
             return View(comments);
         }
 
@@ -75,6 +82,7 @@ namespace BookStore.Controllers
         public IActionResult AddComment(string Name, string CommentBody, int ID)
         {
             _commentService.AddComment(ID, Name, CommentBody);
+
             return View(ID);
         }
 
@@ -93,8 +101,5 @@ namespace BookStore.Controllers
                 return View(ID);
             } 
         }
-
-        //[Authorize]
-
     }
 }

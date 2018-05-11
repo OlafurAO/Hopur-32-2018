@@ -11,15 +11,13 @@ namespace BookStore.Services
     public class CartService
     {
         DataContext _cartDb;
-
         public int CartID  { get; set; }
         public string ID;
+
         public CartService()
         {
             _cartDb = new DataContext();
-            //string userid = HttpContext.User.Identity.Name;
-            ID = System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString();
-            
+            ID = System.Security.Principal.WindowsIdentity.GetCurrent().Name.ToString(); 
         }
         
         public void AddToCart(BookListViewModel book)

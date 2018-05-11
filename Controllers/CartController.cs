@@ -15,9 +15,7 @@ namespace BookStore.Controllers
     public class CartController : Controller
     {
         private BookService _bookService;
-
         private CartService _cartService;
-
         private DataContext _db;
 
         public CartController()
@@ -31,9 +29,9 @@ namespace BookStore.Controllers
         public IActionResult AddToCart(int ID)       
         {
             var book = _bookService.GetAllBooks().Find(x => x.ID == ID);
-            _cartService.AddToCart(book);
-                        
-            //_db.SaveChanges();
+            _cartService.AddToCart(book);                        
+            _db.SaveChanges();
+
             return View(book);
         }
 
@@ -49,6 +47,7 @@ namespace BookStore.Controllers
         public IActionResult RemoveCartItem(int? ID)
         {                       
             _cartService.RemoveCartItem(ID);
+            
             return View();
         }
     }
