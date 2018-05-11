@@ -39,8 +39,6 @@ namespace BookStore.Controllers
         {
             var book = _bookService.GetAllBooks().Find(x => x.ID == ID);
 
-            Console.WriteLine("book controller working");
-
             return View(book);
         } 
 
@@ -48,11 +46,6 @@ namespace BookStore.Controllers
         [HttpGet("/Book/Search")]
         public IActionResult Search(string searchString)
         {
-            if(string.IsNullOrEmpty(searchString))
-            {
-                Console.WriteLine("empty string!");
-            }
-
             var bookList = _bookService.SearchBooks(searchString);
             return View(bookList);
         }
@@ -81,7 +74,6 @@ namespace BookStore.Controllers
         [HttpGet("/Book/AddComment")]
         public IActionResult AddComment(string Name, string CommentBody, int ID)
         {
-            Console.WriteLine(ID);
             _commentService.AddComment(ID, Name, CommentBody);
             return View(ID);
         }
@@ -90,7 +82,6 @@ namespace BookStore.Controllers
         [HttpGet("/Book/Rate")]
         public IActionResult Rate(int? ID, double Rating)
         {
-            Console.WriteLine(Rating);
             if(Rating < 0 || Rating > 5)
             {
                 return View("~/Views/Book/RateError.cshtml");

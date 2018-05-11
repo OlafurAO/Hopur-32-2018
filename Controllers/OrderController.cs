@@ -34,11 +34,6 @@ namespace BookStore.Controllers
         {
             var cartContents = _cart.GetAllItems();
 
-            if(cartContents == null)
-            {
-                Console.WriteLine("empty shit fuck");
-            }
-
             var order = _order.SaveOrder(_cart, cartContents, FirstName, LastName, ShippingAddress, 
                                         BillingAddress, City, Country, ZipCode);
 
@@ -62,10 +57,9 @@ namespace BookStore.Controllers
         [HttpGet("/Order/History")]
         public IActionResult GetOrderHistory()
         {
-            //var orders = _order.GetOrderHistory();
+            var orders = _order.GetOrderHistory();
 
-            //return View(orders);
-            return View();
+            return View(orders);
         }
     }
 }

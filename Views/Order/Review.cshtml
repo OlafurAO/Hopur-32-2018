@@ -8,7 +8,7 @@
 
 <h1>Order Summary</h1>
 <h2>Your Information</h2>
-<ul style="list-style: none">
+<ul style="list-style: none;padding-left: none">
     <li> @order.FirstName @order.LastName </li>
     <li> @order.BillingAddress</li>
     <li> @order.ShippingAddress</li>
@@ -20,7 +20,7 @@
 
 <div>
     <h2>Your Cart</h2>
-    <table>
+    <table style="border-collapse: separate; border: 1px solid;border-spacing: 10px;">
         <tr>
             <th>Name</th>
             <th>Quantity</th>
@@ -31,10 +31,11 @@
             <tr> <td>@item.Book.Name</td> <td>@item.Quantity</td> <td>$@item.Book.Price</td></tr>
         }
     </table>
+    <tr></tr>
 
     <p>Total: $@order.Total</p>
 
-    @Html.ActionLink("Confirm", "ConfirmOrder", "Order", new {
+    @Html.ActionLink("Confirm", "ConfirmOrder", "Order",  new {
                                                               ID = order.ID,
                                                               BillingAddress = order.BillingAddress,
                                                               City = order.City,
@@ -45,5 +46,6 @@
                                                               ShippingAddress = order.ShippingAddress,
                                                               Total = order.Total,
                                                               ZipCode = order.ZipCode,
-                                                              Cart = order.Cart})
+                                                              Cart = order.Cart}
+                                                              )
 </div>

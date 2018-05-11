@@ -12,13 +12,11 @@ else
         {
             if(item.Cart == null)
             {
-                <h1>fuck</h1>
+                foreach(var cart in item.Order.Cart)
+                {        
+                    <li><td>@cart.Book.Name</td> <td>@cart.Quantity</td> <td>$@cart.Book.Price</td></li>    
+                }   
             }
-            @*
-            foreach(var cart in item.Order.Cart)
-            {        
-                <li><td>@cart.Book.Name</td> <td>@cart.Quantity</td> <td>$@cart.Book.Price</td></li>    
-            }*@
         }
     </ul>
 }

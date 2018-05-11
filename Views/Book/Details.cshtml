@@ -4,16 +4,23 @@
     var book = @Model;
 }
 
-<a href="javascript:history.back()"> Back </a>  
+<div style="margin-right: -30px;">
+    <a href="javascript:history.back()"> Back </a>  
+</div>
 
-<div>
+<div style="float:left;border:1px solid;width:20%;padding:70px;margin-top:30px;">
+
+</div>
+
+<div style="float: left; vertical-align:top;margin-left: 30px;margin-top:10px;">
     <p> <h3> @book.Name </h3> <h4> @book.Rating.ToString("0.##")</h4> </p>
     <h4> @book.Author</h4>
     <h4> @book.YearPublished</h4>
     <h5> $@book.Price </h5>
+</div>
 
 
-
+<div style="margin-top: 190px; margin-left:260px;">
     @if(book.CopiesAvailable <= 0)
     {
         <p> Not in Stock </p>
@@ -24,7 +31,10 @@
         @Html.ActionLink("Add to Cart", "AddToCart", "Cart", new { id = book.ID }, new { @class = "btn btn-info" })    
     }
 
-    @Html.ActionLink("Comments", "GetComments", "Book", new { id = book.ID })   
+    @Html.ActionLink("Comments", "GetComments", "Book", new { id = book.ID })
+</div>
+
+<div style="margin-right:70px;">
 
     @using(Html.BeginForm("Rate", "Book", FormMethod.Get))
     {
@@ -37,5 +47,4 @@
             <input type="submit" value="Submit Rating" />
         </form>
     }
-
 </div>

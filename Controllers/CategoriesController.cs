@@ -29,10 +29,9 @@ namespace BookStore.Controllers
         [HttpGet("/Categories/Details")]
         public IActionResult Details(string ID){
           var categories = _categoryService.Filter(ID);
-          Console.WriteLine("ja");
           return View(categories);
 
         }    
 
-        }
+    }
 }

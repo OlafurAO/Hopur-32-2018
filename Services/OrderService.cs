@@ -65,14 +65,6 @@ namespace BookStore.Services
                                 Cart = a.Cart
                           }).ToList();
 
-            foreach(var a in orders)
-            {
-                if(a.Cart == null)
-                {
-                    Console.WriteLine(a.BillingAddress);
-                }
-            }
-
             return orders;
             
         }

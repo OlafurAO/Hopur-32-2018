@@ -26,7 +26,6 @@ namespace BookStore.Services
         
         public void AddToCart(BookListViewModel book)
         {
-            Console.WriteLine(ID);
             var item = _cartDb.Carts.SingleOrDefault(
                                      c => c.ID == CartID
                                      && c.BookID == book.ID);
@@ -82,11 +81,6 @@ namespace BookStore.Services
             {
                 _cartDb.RemoveRange(remove);
                 _cartDb.SaveChanges();
-            }
-
-            foreach(var a in remove)
-            {
-                Console.WriteLine(a.BookID);
             }
         }
 

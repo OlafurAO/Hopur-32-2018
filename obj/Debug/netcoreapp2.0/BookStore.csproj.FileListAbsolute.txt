@@ -38,3 +38,14 @@ C:\Users\Ólafur\Desktop\shfd\obj\Debug\netcoreapp2.0\BookStore.AssemblyInfoInpu
 C:\Users\Ólafur\Desktop\shfd\obj\Debug\netcoreapp2.0\BookStore.AssemblyInfo.cs
 C:\Users\Ólafur\Desktop\shfd\obj\Debug\netcoreapp2.0\BookStore.dll
 C:\Users\Ólafur\Desktop\shfd\obj\Debug\netcoreapp2.0\BookStore.pdb
+C:\Users\Ólafur\Desktop\test\bin\Debug\netcoreapp2.0\BookStore.deps.json
+C:\Users\Ólafur\Desktop\test\bin\Debug\netcoreapp2.0\BookStore.runtimeconfig.json
+C:\Users\Ólafur\Desktop\test\bin\Debug\netcoreapp2.0\BookStore.runtimeconfig.dev.json
+C:\Users\Ólafur\Desktop\test\bin\Debug\netcoreapp2.0\BookStore.dll
+C:\Users\Ólafur\Desktop\test\bin\Debug\netcoreapp2.0\BookStore.pdb
+C:\Users\Ólafur\Desktop\test\obj\Debug\netcoreapp2.0\BookStore.csproj.CoreCompileInputs.cache
+C:\Users\Ólafur\Desktop\test\obj\Debug\netcoreapp2.0\BookStore.AssemblyInfoInputs.cache
+C:\Users\Ólafur\Desktop\test\obj\Debug\netcoreapp2.0\BookStore.AssemblyInfo.cs
+C:\Users\Ólafur\Desktop\test\obj\Debug\netcoreapp2.0\BookStore.dll
+C:\Users\Ólafur\Desktop\test\obj\Debug\netcoreapp2.0\BookStore.pdb
+C:\Users\Ólafur\Desktop\test\obj\Debug\netcoreapp2.0\BookStore.csprojResolveAssemblyReference.cache

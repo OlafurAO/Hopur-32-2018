@@ -8,7 +8,7 @@
 
 <h2>Your Cart</h2>
 
-<table style="border-collapse: separate;border-spacing: 50px 0;">
+<table style="border-collapse: separate; border: 1px solid;border-spacing: 10px;">
     <tr>
         <th>Name</th>
         <th>Price</th>
@@ -26,11 +26,19 @@
         totalPrice += @item.Book.Price;
         totalItems++;
     }
+    <tr></tr>
+    <tr style="right:40px;">
+        <th>Total Price</th>
+        <th>Items</th>
+    <tr>
+    <tr>
+        <td> $@totalPrice </td> <td>@totalItems</td>
+    </tr>
 </table>
-
-<p>Total: $@totalPrice                          @totalItems items </p>
 
 @if(@Model.Count > 0)
 {
-    @Html.ActionLink("Proceed to Checkout", "UserInfo", "Order", null, new { @class = "btn btn-info" })
+    <div style="margin-top:20px">
+        @Html.ActionLink("Proceed to Checkout", "UserInfo", "Order", null, new { @class = "btn btn-info" })
+    </div>
 }

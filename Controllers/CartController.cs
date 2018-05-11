@@ -42,11 +42,6 @@ namespace BookStore.Controllers
         {
             var items = _cartService.GetAllItems();
 
-            if(items == null)
-            {
-                Console.WriteLine("Empty Cart");
-            }
-
             return View(items);
         }
 

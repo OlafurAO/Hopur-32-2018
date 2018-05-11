@@ -3,6 +3,7 @@
 @{
     var cartList = @Model;
     double totalPrice = 0;
+    int totalItems = 0;
 }
 
 <a href="javascript:history.back()"> Back </a>
@@ -11,7 +12,7 @@
 {
     <div style="display: inline-block;vertical-align: top;">
         <h2>Input Your Information</h2>
-        <form>
+        <form style="margin-bottom:5px;">
             First name:<br>
             @Html.TextBox("FirstName", null, new {required="required", style="height:27px;border-radius:4px;"})<br>
 
@@ -43,19 +44,20 @@
             Zip Code:<br>
             @Html.TextBox("ZipCode", null, new {required="required", style="lheight:27px;border-radius:4px;"})<br>
 
-            <input type="submit" value="Confirm Information" />
+            <input type="submit" value="Confirm Information" style="margin-top: 20px;" class="btn btn-info"/>
         </form>
     </div>
 }
 
 <div style="display: inline-block; vertical-align: top;">
     <h3>Cart</h3>
-    <table>
+    <table style="border-collapse: separate; border: 1px solid;border-spacing: 10px;">
         <tr>
             <th>Name</th>
             <th>Quantity</th>
             <th>Price</th>
         <tr>
+
         @foreach(var item in cartList)
         {
             <tr>               
@@ -65,8 +67,19 @@
             </tr>
 
             totalPrice += @item.Book.Price;
+            totalItems++;
         }
+        <tr></tr>
+
+        <tr>
+            <th>Total Price</th>
+            <th>Items</th>
+        </tr>
+
+        <tr>
+            <td>$@totalPrice</td> <td>@totalItems</td>
+        </tr>
+
     <table>
-    <p>Total: $@totalPrice</p>
 </div>
 

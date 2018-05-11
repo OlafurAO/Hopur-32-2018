@@ -104,7 +104,6 @@ namespace BookStore.Repositories
 
             foreach(var item in cartItems)
             {
-                Console.WriteLine(item);
                 _db.Books
                 .Where(x => x.ID.Equals(item))
                 .ToList()

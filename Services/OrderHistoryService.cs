@@ -31,8 +31,6 @@ namespace BookStore.Services
         {
             var order = (from a in _orderHistoryDb.Orders
                           select a.Cart);
-
-            Console.WriteLine(order.First().First().Book.Name);
             
             var orders = (from a in _orderHistoryDb.Orders
                           select new Order
@@ -48,19 +46,7 @@ namespace BookStore.Services
                                 OrderDate = a.OrderDate,
                                 Cart = a.Cart
                           }).ToList();
-
-            foreach(var a in orders)
-            {
-                if(a.Cart == null)
-                {
-                    Console.WriteLine(a.BillingAddress);
-                }
-            }
-
-            return orders;
-            
-
-            
+            return orders;   
         }
     }
 }  
